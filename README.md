@@ -9,7 +9,7 @@ Visual: só o hero é escuro, o resto da página é branco com texto preto e apo
 cinza. Títulos em Poppins Light, corpo em Inter Tight.
 
 Lighthouse no celular, com throttle real (`--throttling-method=devtools`):
-**100 / 100 / 100 / 100**. LCP 0,9 s, CLS 0,03, TBT 0 ms.
+**100 / 100 / 100 / 100**, e o mesmo no desktop. LCP 0,9 s, CLS 0,02, TBT 0 ms.
 
 ## Como mexer
 
@@ -36,7 +36,7 @@ obrigado.html     página de conversão, monta a mensagem do WhatsApp
 assets/css/       fonte do CSS (embutido no build)
 assets/js/        comportamento: janela do hero, formulário, revelações
 assets/img/       fotos em WebP, várias larguras
-assets/fonts/     Archivo e Inter Tight, self-hosted, 80 KB no total
+assets/fonts/     Poppins Light e Inter Tight, self-hosted, 60 KB no total
 _src/             originais das fotos e a copy em markdown (fora do deploy)
 ```
 
