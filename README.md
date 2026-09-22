@@ -58,8 +58,10 @@ especificador. A WIGGA publica os modelos em SketchUp, e isso não aparecia em
 lugar nenhum.
 
 **O CTA principal é o WhatsApp.** Cada seção fecha com um botão verde "Falar com
-um especialista". O formulário continua na página, como caminho para quem prefere
-escrever, e a nav aponta para ele.
+um especialista". O formulário também termina no WhatsApp: ao enviar, a pessoa
+passa por `/obrigado`, que dispara a conversão e abre a conversa já com o resumo
+do que ela preencheu. O formulário existe para qualificar antes da conversa, não
+para substituí-la.
 
 ## Antes de publicar
 
@@ -82,7 +84,9 @@ São dois eventos, os dois no `dataLayer`:
 
 `obrigado.html` tem o lugar marcado para o snippet do GTM e só carrega o container
 quando existe pedido de verdade na sessão, para visita direta à URL não registrar
-conversão. A conta de Ads e o container da WIGGA precisam ser ligados pelo Lucas.
+conversão. O redirecionamento para o WhatsApp espera o retorno do GTM, com piso
+de 0,9s e teto de 2,6s, para a conversão sair antes de a página mudar. A conta de
+Ads e o container da WIGGA precisam ser ligados pelo Lucas.
 
 ### 3. Os 15 dados que só a WIGGA tem
 
@@ -135,7 +139,9 @@ detalhe do perfil em corte, e obras de litoral e de serra identificadas como tai
 - **Litoral e serra sem foto legendada como tal**, porque não dá para confirmar
   onde cada obra do acervo fica.
 - **O logo é um SVG só, com o texto em `currentColor`.** Ele sai branco sobre o
-  hero escuro e escuro sobre fundo claro, sem precisar de dois arquivos.
+  hero escuro e escuro sobre fundo claro, sem precisar de dois arquivos. Os paths
+  vêm de `assets/img/wigga-logo.svg`: se precisar mexer, copie de lá, não redesenhe.
+- **O ícone da aba é só o quadrado**, com fundo transparente e miolo branco.
 
 ## Contato que está na página
 

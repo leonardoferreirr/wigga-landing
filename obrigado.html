@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pedido enviado | WIGGA</title>
+<title>Abrindo o WhatsApp | WIGGA</title>
 <meta name="description" content="Recebemos o seu pedido de orçamento de esquadrias de PVC.">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#0B0A0E">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/Archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Poppins-300.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/InterTight-var.woff2" as="font" type="font/woff2" crossorigin>
 <!--CSS--><style>@font-face{
 font-family:'Poppins';
@@ -197,6 +197,10 @@ display:flex;gap:8px;align-items:center;min-height:1.2em;
 .hero__meter small span{opacity:0;position:absolute;right:0;transition:opacity .35s var(--ease-out)}
 .hero__meter small span.is-on{opacity:1;position:relative}
 .hero__content{position:absolute;left:0;right:0;bottom:0;z-index:5;padding-bottom:clamp(38px,6vh,74px);pointer-events:none}
+.hero__content::before{
+content:'';position:absolute;inset:-14% 0 0;z-index:-1;pointer-events:none;
+background:linear-gradient(180deg,rgba(11,10,14,0) 0%,rgba(11,10,14,.28) 34%,rgba(11,10,14,.5) 68%,rgba(11,10,14,.52) 100%);
+}
 .hero__content .btn,.hero__content a{pointer-events:auto}
 .hero h1{max-width:20ch;text-shadow:0 2px 40px rgba(0,0,0,.45)}
 .hero h1 em{font-style:normal;color:var(--brand);font-weight:400}
@@ -361,7 +365,7 @@ height:clamp(268px,38vh,340px);
 }
 .spec{background:var(--paper);overflow:hidden}
 .spec__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(30px,5vw,80px);align-items:stretch}
-.spec__col{display:flex;flex-direction:column;align-items:flex-start}
+.spec__col{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
 .spec__media{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--ink);margin:0;height:100%;min-height:340px}
 .spec__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .spec ul{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
@@ -372,9 +376,7 @@ height:clamp(268px,38vh,340px);
 .spec__grid{grid-template-columns:1fr}
 .spec__media{min-height:0;height:auto;aspect-ratio:4/3;order:-1;margin-bottom:24px}
 }
-.steps__grid{display:grid;grid-template-columns:minmax(0,.66fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:start}
-.steps__title{position:sticky;top:120px}
-.steps__title h2{font-size:clamp(24px,2.9vw,40px)}
+.steps__grid{max-width:840px;margin-inline:auto}
 .steps__list{position:relative;padding-left:clamp(28px,4vw,54px)}
 .steps__line{position:absolute;left:0;top:10px;bottom:10px;width:1px;background:var(--line-paper)}
 .steps__line i{position:absolute;inset:0 auto 0 0;width:1px;background:var(--brand);height:var(--p,0%);transition:height .25s linear}
@@ -388,7 +390,6 @@ transform:translateX(-4px);transition:background-color .4s var(--ease-out),borde
 .step b{display:block;font-family:var(--font-display);font-weight:400;font-size:clamp(18px,1.9vw,24px);letter-spacing:-.01em;margin-bottom:8px}
 .step span{color:var(--on-paper-dim);max-width:48ch;display:block}
 .step em{font-style:normal;font-size:12px;letter-spacing:.2em;color:var(--on-paper-faint);display:block;margin-bottom:12px;font-variant-numeric:tabular-nums}
-@media (max-width:860px){.steps__grid{grid-template-columns:1fr}.steps__title{position:relative;top:0}}
 .works__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.8vw,24px)}
 .work{position:relative;overflow:hidden;border-radius:var(--radius);background:var(--paper-2);aspect-ratio:4/3;margin:0}
 .work img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.1s var(--ease-out)}
@@ -420,7 +421,7 @@ font-family:var(--font-display);font-weight:400;font-size:clamp(16px,1.7vw,21px)
 .faq__a{overflow:hidden;height:0;transition:height .45s var(--ease-out)}
 .faq__a p{padding:0 0 26px;max-width:60ch;color:var(--on-paper-dim);font-size:15.5px}
 .cta{position:relative;background:var(--paper);overflow:hidden}
-.cta__grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(30px,5vw,80px);align-items:center}
+.cta__grid{position:relative;z-index:1;max-width:760px;margin-inline:auto}
 .form{
 background:var(--paper-2);border:1px solid var(--line-paper);border-radius:var(--radius);
 padding:clamp(22px,2.6vw,34px)
@@ -442,9 +443,9 @@ transition:border-color .3s var(--ease-out)
 .field__err{font-size:12px;color:#C0173A;display:none}
 .field.is-bad .field__err{display:block}
 .form .btn{width:100%;margin-top:6px}
+.form .btn svg{width:19px;height:19px;fill:currentColor}
 .form__note{margin-top:14px;font-size:12.5px;color:var(--on-paper-faint);text-align:center}
 .hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
-@media (max-width:900px){.cta__grid{grid-template-columns:1fr}}
 @media (max-width:520px){.form__row{grid-template-columns:1fr}}
 .closer{background:var(--paper);padding-block:clamp(60px,9vh,120px);border-top:1px solid var(--line-paper);overflow:hidden}
 .closer h2{font-size:clamp(26px,4vw,56px);text-align:center;line-height:1.16;max-width:34ch;margin-inline:auto;text-wrap:balance}
@@ -476,14 +477,15 @@ transition:transform .35s var(--ease-out)
 }</style><!--/CSS-->
 <style>
   .ty{min-height:100svh;display:grid;place-items:center;text-align:center;padding:var(--gutter)}
-  .ty__mark{width:54px;height:54px;margin:0 auto 30px;border:3px solid var(--brand);position:relative}
-  .ty__mark::after{content:'';position:absolute;inset:11px;border:3px solid var(--brand);opacity:.28}
-  .ty h1{font-size:clamp(30px,5.4vw,62px);text-transform:uppercase;margin-bottom:20px}
-  .ty p{color:var(--fg-dim);max-width:52ch;margin-inline:auto}
-  .ty__actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-  .ty__resumo{margin-top:40px;border-top:1px solid var(--line);padding-top:24px;font-size:13.5px;color:var(--fg-faint);max-width:52ch;margin-inline:auto;text-align:left;display:none}
+  .ty__mark{width:52px;height:64px;margin:0 auto 30px;position:relative;background:var(--brand)}
+  .ty__mark::after{content:'';position:absolute;inset:13px 13px 11px;background:var(--paper)}
+  .ty h1{font-size:clamp(26px,4vw,52px);margin-bottom:18px}
+  .ty p{color:var(--on-paper-dim);max-width:52ch;margin-inline:auto}
+  .ty__actions{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .ty__actions .btn svg{width:19px;height:19px;fill:currentColor}
+  .ty__resumo{margin-top:40px;border-top:1px solid var(--line-paper);padding-top:24px;font-size:13.5px;color:var(--on-paper-dim);max-width:52ch;margin-inline:auto;text-align:left;display:none}
   .ty__resumo.is-on{display:block}
-  .ty__resumo b{color:var(--fg-dim);font-weight:500}
+  .ty__resumo b{color:var(--on-paper);font-weight:600;display:block;margin-bottom:8px}
 </style>
 </head>
 <body>
@@ -491,11 +493,14 @@ transition:transform .35s var(--ease-out)
 <main class="ty">
   <div>
     <div class="ty__mark" aria-hidden="true"></div>
-    <h1>Pedido recebido</h1>
-    <p id="ty-msg">Seu pedido chegou ao time comercial da Wigga. Se quiser adiantar a conversa, chame no WhatsApp: o resumo do que você preencheu já vai escrito na mensagem.</p>
+    <h1 id="ty-titulo">Pedido recebido</h1>
+    <p id="ty-msg">Estamos abrindo o WhatsApp com o resumo do que você preencheu. É só enviar a mensagem.</p>
 
     <div class="ty__actions">
-      <a class="btn btn--primary btn--lg" id="ty-zap" href="https://wa.me/555135812444" target="_blank" rel="noopener">Continuar no WhatsApp</a>
+      <a class="btn btn--zap btn--lg" id="ty-zap" href="https://wa.me/555135812444" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.01-1.04 2.47 1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35M12.04 21.5h-.01c-1.77 0-3.5-.48-5.02-1.38l-.36-.21-3.73.98 1-3.64-.23-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.92 9.89M20.52 3.45A11.78 11.78 0 0 0 12.04 0C5.46 0 .1 5.36.1 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.24-1.64a11.9 11.9 0 0 0 5.8 1.48h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.5-8.45"/></svg>
+        Abrir o WhatsApp
+      </a>
       <a class="btn btn--ghost btn--lg" href="/">Voltar para o site</a>
     </div>
 
@@ -506,6 +511,7 @@ transition:transform .35s var(--ease-out)
 <script>
 (function () {
   document.documentElement.classList.remove('no-js');
+
   var pedido = null;
   try { pedido = JSON.parse(sessionStorage.getItem('wg_pedido') || 'null'); } catch (e) {}
 
@@ -514,33 +520,55 @@ transition:transform .35s var(--ease-out)
     perfil: 'Perfil', fase: 'Fase da obra', quantidade: 'Esquadrias', mensagem: 'Detalhes'
   };
 
-  if (pedido) {
-    var linhas = [];
-    Object.keys(LABELS).forEach(function (k) {
-      if (pedido[k]) linhas.push(LABELS[k] + ': ' + pedido[k]);
-    });
-
-    var resumo = document.getElementById('ty-resumo');
-    resumo.innerHTML = '<b>O que você enviou</b><br>' + linhas.join('<br>');
-    resumo.classList.add('is-on');
-
-    var texto = 'Olá! Acabei de pedir um orçamento pelo site.\n\n' + linhas.join('\n');
-    document.getElementById('ty-zap').href =
-      'https://wa.me/555135812444?text=' + encodeURIComponent(texto);
-  } else {
+  if (!pedido) {
+    document.getElementById('ty-titulo').textContent = 'Falta preencher o formulário';
     document.getElementById('ty-msg').textContent =
-      'Não encontramos um pedido nesta sessão. Se você ainda não preencheu o formulário, volte ao site e conte da sua obra: o orçamento sai com a especificação certa.';
+      'Não encontramos um pedido nesta sessão. Volte ao site e conte da sua obra: assim o orçamento sai com a especificação certa.';
+    return;
   }
 
-  /* [A PREENCHER] Conversão do Google Ads.
-     O disparo vai no container GTM da Wigga, com gatilho de página que contém /obrigado.
-     O container só deve ser carregado quando existe pedido de verdade nesta sessão,
-     para visita direta a esta URL não registrar conversão. Cole o snippet abaixo. */
-  if (pedido) {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'orcamento_enviado', perfil: pedido.perfil || '', quantidade: pedido.quantidade || '' });
-    // (function(w,d,s,l,i){ ... snippet do GTM ... })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  var linhas = [];
+  Object.keys(LABELS).forEach(function (k) {
+    if (pedido[k]) linhas.push(LABELS[k] + ': ' + pedido[k]);
+  });
+
+  var resumo = document.getElementById('ty-resumo');
+  resumo.innerHTML = '<b>O que vai na mensagem</b>' + linhas.join('<br>');
+  resumo.classList.add('is-on');
+
+  var texto = 'Olá! Acabei de pedir um orçamento pelo site.\n\n' + linhas.join('\n');
+  var destino = 'https://wa.me/555135812444?text=' + encodeURIComponent(texto);
+  document.getElementById('ty-zap').href = destino;
+
+  /* Conversão e ida para o WhatsApp.
+     A conversão precisa ter tempo de sair antes da página mudar, então o
+     redirecionamento espera o retorno do GTM, com piso de 0,9s para a pessoa
+     ler o que está acontecendo e teto de 2,6s para não travar se o container
+     não responder (ou nem existir).
+
+     [A PREENCHER] snippet do GTM da WIGGA. Ele só carrega aqui quando existe
+     pedido de verdade na sessão, para visita direta a esta URL não registrar
+     conversão. */
+  var foi = false, nascido = Date.now();
+  function irParaOZap() {
+    if (foi) return;
+    var falta = Math.max(0, 900 - (Date.now() - nascido));
+    foi = true;
+    setTimeout(function () { window.location.href = destino; }, falta);
   }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'orcamento_enviado',
+    perfil: pedido.perfil || '',
+    quantidade: pedido.quantidade || '',
+    fase: pedido.fase || '',
+    eventCallback: irParaOZap,
+    eventTimeout: 2000
+  });
+  // (function(w,d,s,l,i){ ... snippet do GTM ... })(window,document,'script','dataLayer','GTM-XXXXXXX');
+
+  setTimeout(irParaOZap, 2600);
 })();
 </script>
 </body>

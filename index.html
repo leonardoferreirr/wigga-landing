@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Esquadrias de PVC de alto padrão sob medida | WIGGA</title>
+<title>WIGGA Esquadrias em PVC | Rio Grande do Sul</title>
 <meta name="description" content="Esquadrias de PVC sob medida, fabricadas há 19 anos em São Leopoldo. Acústica, vedação e nada de repintura. Peça o orçamento da sua obra com a WIGGA.">
 <link rel="canonical" href="https://wigga.com.br/">
 <meta name="theme-color" content="#FFFFFF">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="WIGGA">
-<meta property="og:title" content="Esquadrias de PVC de alto padrão sob medida | WIGGA">
+<meta property="og:title" content="WIGGA Esquadrias em PVC | Rio Grande do Sul">
 <meta property="og:description" content="Cada peça sai da fábrica no tamanho exato do seu vão, com tecnologia alemã e italiana e acabamento conferido à mão.">
 <meta property="og:image" content="https://wigga.com.br/assets/img/hero-residencia-1400.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -211,6 +211,10 @@ display:flex;gap:8px;align-items:center;min-height:1.2em;
 .hero__meter small span{opacity:0;position:absolute;right:0;transition:opacity .35s var(--ease-out)}
 .hero__meter small span.is-on{opacity:1;position:relative}
 .hero__content{position:absolute;left:0;right:0;bottom:0;z-index:5;padding-bottom:clamp(38px,6vh,74px);pointer-events:none}
+.hero__content::before{
+content:'';position:absolute;inset:-14% 0 0;z-index:-1;pointer-events:none;
+background:linear-gradient(180deg,rgba(11,10,14,0) 0%,rgba(11,10,14,.28) 34%,rgba(11,10,14,.5) 68%,rgba(11,10,14,.52) 100%);
+}
 .hero__content .btn,.hero__content a{pointer-events:auto}
 .hero h1{max-width:20ch;text-shadow:0 2px 40px rgba(0,0,0,.45)}
 .hero h1 em{font-style:normal;color:var(--brand);font-weight:400}
@@ -375,7 +379,7 @@ height:clamp(268px,38vh,340px);
 }
 .spec{background:var(--paper);overflow:hidden}
 .spec__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(30px,5vw,80px);align-items:stretch}
-.spec__col{display:flex;flex-direction:column;align-items:flex-start}
+.spec__col{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
 .spec__media{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--ink);margin:0;height:100%;min-height:340px}
 .spec__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .spec ul{margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
@@ -386,9 +390,7 @@ height:clamp(268px,38vh,340px);
 .spec__grid{grid-template-columns:1fr}
 .spec__media{min-height:0;height:auto;aspect-ratio:4/3;order:-1;margin-bottom:24px}
 }
-.steps__grid{display:grid;grid-template-columns:minmax(0,.66fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:start}
-.steps__title{position:sticky;top:120px}
-.steps__title h2{font-size:clamp(24px,2.9vw,40px)}
+.steps__grid{max-width:840px;margin-inline:auto}
 .steps__list{position:relative;padding-left:clamp(28px,4vw,54px)}
 .steps__line{position:absolute;left:0;top:10px;bottom:10px;width:1px;background:var(--line-paper)}
 .steps__line i{position:absolute;inset:0 auto 0 0;width:1px;background:var(--brand);height:var(--p,0%);transition:height .25s linear}
@@ -402,7 +404,6 @@ transform:translateX(-4px);transition:background-color .4s var(--ease-out),borde
 .step b{display:block;font-family:var(--font-display);font-weight:400;font-size:clamp(18px,1.9vw,24px);letter-spacing:-.01em;margin-bottom:8px}
 .step span{color:var(--on-paper-dim);max-width:48ch;display:block}
 .step em{font-style:normal;font-size:12px;letter-spacing:.2em;color:var(--on-paper-faint);display:block;margin-bottom:12px;font-variant-numeric:tabular-nums}
-@media (max-width:860px){.steps__grid{grid-template-columns:1fr}.steps__title{position:relative;top:0}}
 .works__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.8vw,24px)}
 .work{position:relative;overflow:hidden;border-radius:var(--radius);background:var(--paper-2);aspect-ratio:4/3;margin:0}
 .work img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.1s var(--ease-out)}
@@ -434,7 +435,7 @@ font-family:var(--font-display);font-weight:400;font-size:clamp(16px,1.7vw,21px)
 .faq__a{overflow:hidden;height:0;transition:height .45s var(--ease-out)}
 .faq__a p{padding:0 0 26px;max-width:60ch;color:var(--on-paper-dim);font-size:15.5px}
 .cta{position:relative;background:var(--paper);overflow:hidden}
-.cta__grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(30px,5vw,80px);align-items:center}
+.cta__grid{position:relative;z-index:1;max-width:760px;margin-inline:auto}
 .form{
 background:var(--paper-2);border:1px solid var(--line-paper);border-radius:var(--radius);
 padding:clamp(22px,2.6vw,34px)
@@ -456,9 +457,9 @@ transition:border-color .3s var(--ease-out)
 .field__err{font-size:12px;color:#C0173A;display:none}
 .field.is-bad .field__err{display:block}
 .form .btn{width:100%;margin-top:6px}
+.form .btn svg{width:19px;height:19px;fill:currentColor}
 .form__note{margin-top:14px;font-size:12.5px;color:var(--on-paper-faint);text-align:center}
 .hp{position:absolute;left:-9999px;opacity:0;pointer-events:none}
-@media (max-width:900px){.cta__grid{grid-template-columns:1fr}}
 @media (max-width:520px){.form__row{grid-template-columns:1fr}}
 .closer{background:var(--paper);padding-block:clamp(60px,9vh,120px);border-top:1px solid var(--line-paper);overflow:hidden}
 .closer h2{font-size:clamp(26px,4vw,56px);text-align:center;line-height:1.16;max-width:34ch;margin-inline:auto;text-wrap:balance}
@@ -536,8 +537,9 @@ transition:transform .35s var(--ease-out)
       <path d="M0 0v56.69h45.36V0zm34 45.35H11.34v-34H34z" fill="#DC0432"/>
       <g fill="currentColor">
         <path d="M99.36 11.33l-4.39 20.78h-.09l-4.96-20.78H79.19l-5 20.78h-.1l-4.38-20.78H56.69l9.92 34.03h13.2l4.67-18.87h.1l4.62 18.87h13.21l9.37-32.02v32.02h13.44V11.33H99.36z"/>
-        <path d="M149.53 18.72a10.51 10.51 0 0 1 4.58.81 4.83 4.83 0 0 1 2.62 3.4h15.16c-1.05-8.77-8.15-12.87-23.12-12.87-10.29 0-22.21 3.43-22.21 18.35 0 15.73 12.82 18.07 22.26 18.07 7.72 0 12.11-1.2 15.59-4.3l1.52 3.1h11.2V27.1h-21.3v8.42h7.9c-1.15 2.87-3.87 4.3-7.54 4.3-6.67 0-10-3.34-10-9.63 0-6.92 3.48-9.63 9-9.63z"/>
-        <path d="M205.72 18.72a10.48 10.48 0 0 1 4.58.81 4.83 4.83 0 0 1 2.57 3.43h15.16c-1.05-8.77-8.15-12.87-23.12-12.87-10.29 0-22.21 3.43-22.21 18.35 0 15.73 12.82 18.07 22.26 18.07 7.72 0 12.11-1.2 15.59-4.3l1.52 3.1h17l1.44-3.91h14l1.43 3.91h14.3l-14.86-34.03h-14.2L232.5 38.1h-.06V27.1h-21.3v8.42h7.9c-1.15 2.87-3.87 4.3-7.54 4.3-6.67 0-10-3.34-10-9.63 0-6.92 3.48-9.63 9-9.63zm44.98 5.57l4 11.54h-8z"/>
+        <path d="M149.53 18.72a10.51 10.51 0 0 1 4.58.81 4.83 4.83 0 0 1 2.62 3.47h15.16c-1-8.77-8.15-12.87-23.12-12.87-10.3 0-22.22 3.43-22.22 18.35 0 15.73 12.83 18.07 22.27 18.07 7.72 0 12.1-1.2 15.58-4.3l1.53 3.1h5.77V26h-19.12v7.72h5.53c-1 2.58-3.14 4.3-7.53 4.3-6.68 0-10-3.34-10-9.63-.01-6.96 3.47-9.67 8.95-9.67z"/>
+        <path d="M246.08 11.33h-16.49l-11.48 27V26H199v7.72h5.53c-1 2.58-3.15 4.3-7.54 4.3-6.67 0-10-3.34-10-9.63 0-6.92 3.48-9.63 9-9.63a10.48 10.48 0 0 1 4.58.81 4.83 4.83 0 0 1 2.57 3.43h15.16c-1.05-8.77-8.15-12.87-23.12-12.87-10.29 0-22.21 3.43-22.21 18.35 0 15.73 12.82 18.07 22.26 18.07 7.72 0 12.11-1.2 15.59-4.3l1.52 3.1h17l1.44-3.91h14l1.43 3.91h14.3zm-12.3 21.83l4-11.54h.1l4 11.54z"/>
+        <path d="M260 16.46a4.54 4.54 0 0 1-1.58 1.59 4 4 0 0 1-2.05.59 4 4 0 0 1-2.09-.59 4.71 4.71 0 0 1-1.58-1.59 4 4 0 0 1-.59-2.08 4 4 0 0 1 .59-2.05 4.71 4.71 0 0 1 1.58-1.59 4 4 0 0 1 2.09-.6 3.87 3.87 0 0 1 2.05.6 4.71 4.71 0 0 1 1.58 1.59 3.87 3.87 0 0 1 .6 2.05 3.94 3.94 0 0 1-.6 2.08zm-.78-3.7a3.68 3.68 0 0 0-1.22-1.25 3.06 3.06 0 0 0-3.26 0 3.62 3.62 0 0 0-1.24 1.25 3.1 3.1 0 0 0-.47 1.62 3.13 3.13 0 0 0 .47 1.63 3.59 3.59 0 0 0 1.24 1.24 3.11 3.11 0 0 0 1.64.46 3 3 0 0 0 1.6-.47 3.84 3.84 0 0 0 1.19-1.24 3.17 3.17 0 0 0 .5-1.62 3 3 0 0 0-.48-1.62zm-2.91 2.32h-.49v1.44h-1v-4.23h1.61a1.7 1.7 0 0 1 1.13.35 1.26 1.26 0 0 1 .43 1 1.24 1.24 0 0 1-.67 1.21l1.09 1.63h-1.19zm-.49-.93h.59a.64.64 0 0 0 .44-.13.4.4 0 0 0 .16-.34c0-.31-.2-.46-.6-.46h-.59z"/>
       </g>
     </svg>
   </a>
@@ -905,10 +907,13 @@ transition:transform .35s var(--ease-out)
 <!-- ============================= ARQUITETOS ============================= -->
 <section class="section spec" id="arquitetos">
   <div class="wrap">
+    <div class="head rv">
+      <h2>Para quem desenha<br>antes de comprar</h2>
+    </div>
+
     <div class="spec__grid">
       <div class="spec__col">
-        <h2 class="rv">Para quem desenha<br>antes de comprar</h2>
-        <p class="lead rv rv-d1" style="margin-top:20px">Os modelos das nossas esquadrias estão em SketchUp, prontos para entrar no seu arquivo. Você projeta com o perfil real, não com um bloco genérico.</p>
+        <p class="lead rv rv-d1">Os modelos das nossas esquadrias estão em SketchUp, prontos para entrar no seu arquivo. Você projeta com o perfil real, não com um bloco genérico.</p>
         <ul class="rv rv-d2">
           <li>O vão fecha certo já no projeto, sem ajuste depois da medição.</li>
           <li>A compatibilização não volta para trás na revisão do executivo.</li>
@@ -939,11 +944,11 @@ transition:transform .35s var(--ease-out)
 <!-- ============================= PROCESSO ============================= -->
 <section class="section steps">
   <div class="wrap">
-    <div class="steps__grid">
-      <div class="steps__title rv">
-        <h2>Do primeiro contato<br>até a janela instalada</h2>
-      </div>
+    <div class="head rv">
+      <h2>Do primeiro contato<br>até a janela instalada</h2>
+    </div>
 
+    <div class="steps__grid">
       <div class="steps__list">
         <div class="steps__line"><i></i></div>
 
@@ -1075,14 +1080,13 @@ transition:transform .35s var(--ease-out)
 <!-- ============================= FORMULÁRIO ============================= -->
 <section class="section cta" id="orcamento">
   <div class="wrap">
-    <div class="cta__grid">
-      <div>
-        <h2 class="rv">Conte da obra,<br>a gente volta<br>com o orçamento</h2>
-        <p class="lead rv rv-d1" style="margin-top:20px">Quanto mais específico você for, mais rápida e mais precisa é a resposta.</p>
-        <!-- [A PREENCHER] prazo de retorno prometido, para entrar nesta linha. -->
-        <p class="lead rv rv-d2" style="margin-top:24px">Prefere falar agora? <a href="https://wa.me/555135812444" data-zap style="color:var(--on-paper);border-bottom:1px solid var(--brand)">(51) 3581-2444</a>, telefone e WhatsApp.<br>Orçamentos também por <a href="mailto:wigga@wigga.com.br" style="color:var(--on-paper);border-bottom:1px solid var(--brand)">wigga@wigga.com.br</a>.</p>
-      </div>
+    <div class="head rv">
+      <h2>Conte da obra, a gente<br>volta com o orçamento</h2>
+      <p class="lead">Preencha e a conversa já abre no WhatsApp com tudo o que você escreveu.</p>
+      <!-- [A PREENCHER] prazo de retorno prometido, para entrar nesta linha. -->
+    </div>
 
+    <div class="cta__grid">
       <form class="form rv rv-d1" id="form-orcamento" novalidate>
         <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -1155,10 +1159,14 @@ transition:transform .35s var(--ease-out)
           </div>
         </div>
 
-        <button class="btn btn--primary" type="submit">Enviar e receber meu orçamento</button>
+        <button class="btn btn--zap" type="submit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
+        </button>
         <p class="form__note">Seus dados vão direto para o time comercial da Wigga. Nada de lista de disparo.</p>
       </form>
     </div>
+
+    <p class="lead rv rv-d2" style="text-align:center;margin:clamp(26px,4vh,40px) auto 0">Prefere ligar? <a href="https://wa.me/555135812444" data-zap style="color:var(--on-paper);border-bottom:1px solid var(--brand)">(51) 3581-2444</a>, telefone e WhatsApp. Orçamentos também por <a href="mailto:wigga@wigga.com.br" style="color:var(--on-paper);border-bottom:1px solid var(--brand)">wigga@wigga.com.br</a>.</p>
   </div>
 </section>
 
@@ -1181,13 +1189,14 @@ transition:transform .35s var(--ease-out)
     <div class="foot__grid">
       <div class="foot__logo">
         <svg viewBox="0 0 260.57 56.69" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WIGGA">
-          <path d="M0 0v56.69h45.36V0zm34 45.35H11.34v-34H34z" fill="#DC0432"/>
-          <g fill="currentColor">
-            <path d="M99.36 11.33l-4.39 20.78h-.09l-4.96-20.78H79.19l-5 20.78h-.1l-4.38-20.78H56.69l9.92 34.03h13.2l4.67-18.87h.1l4.62 18.87h13.21l9.37-32.02v32.02h13.44V11.33H99.36z"/>
-            <path d="M149.53 18.72a10.51 10.51 0 0 1 4.58.81 4.83 4.83 0 0 1 2.62 3.4h15.16c-1.05-8.77-8.15-12.87-23.12-12.87-10.29 0-22.21 3.43-22.21 18.35 0 15.73 12.82 18.07 22.26 18.07 7.72 0 12.11-1.2 15.59-4.3l1.52 3.1h11.2V27.1h-21.3v8.42h7.9c-1.15 2.87-3.87 4.3-7.54 4.3-6.67 0-10-3.34-10-9.63 0-6.92 3.48-9.63 9-9.63z"/>
-            <path d="M205.72 18.72a10.48 10.48 0 0 1 4.58.81 4.83 4.83 0 0 1 2.57 3.43h15.16c-1.05-8.77-8.15-12.87-23.12-12.87-10.29 0-22.21 3.43-22.21 18.35 0 15.73 12.82 18.07 22.26 18.07 7.72 0 12.11-1.2 15.59-4.3l1.52 3.1h17l1.44-3.91h14l1.43 3.91h14.3l-14.86-34.03h-14.2L232.5 38.1h-.06V27.1h-21.3v8.42h7.9c-1.15 2.87-3.87 4.3-7.54 4.3-6.67 0-10-3.34-10-9.63 0-6.92 3.48-9.63 9-9.63zm44.98 5.57l4 11.54h-8z"/>
-          </g>
-        </svg>
+      <path d="M0 0v56.69h45.36V0zm34 45.35H11.34v-34H34z" fill="#DC0432"/>
+      <g fill="currentColor">
+        <path d="M99.36 11.33l-4.39 20.78h-.09l-4.96-20.78H79.19l-5 20.78h-.1l-4.38-20.78H56.69l9.92 34.03h13.2l4.67-18.87h.1l4.62 18.87h13.21l9.37-32.02v32.02h13.44V11.33H99.36z"/>
+        <path d="M149.53 18.72a10.51 10.51 0 0 1 4.58.81 4.83 4.83 0 0 1 2.62 3.47h15.16c-1-8.77-8.15-12.87-23.12-12.87-10.3 0-22.22 3.43-22.22 18.35 0 15.73 12.83 18.07 22.27 18.07 7.72 0 12.1-1.2 15.58-4.3l1.53 3.1h5.77V26h-19.12v7.72h5.53c-1 2.58-3.14 4.3-7.53 4.3-6.68 0-10-3.34-10-9.63-.01-6.96 3.47-9.67 8.95-9.67z"/>
+        <path d="M246.08 11.33h-16.49l-11.48 27V26H199v7.72h5.53c-1 2.58-3.15 4.3-7.54 4.3-6.67 0-10-3.34-10-9.63 0-6.92 3.48-9.63 9-9.63a10.48 10.48 0 0 1 4.58.81 4.83 4.83 0 0 1 2.57 3.43h15.16c-1.05-8.77-8.15-12.87-23.12-12.87-10.29 0-22.21 3.43-22.21 18.35 0 15.73 12.82 18.07 22.26 18.07 7.72 0 12.11-1.2 15.59-4.3l1.52 3.1h17l1.44-3.91h14l1.43 3.91h14.3zm-12.3 21.83l4-11.54h.1l4 11.54z"/>
+        <path d="M260 16.46a4.54 4.54 0 0 1-1.58 1.59 4 4 0 0 1-2.05.59 4 4 0 0 1-2.09-.59 4.71 4.71 0 0 1-1.58-1.59 4 4 0 0 1-.59-2.08 4 4 0 0 1 .59-2.05 4.71 4.71 0 0 1 1.58-1.59 4 4 0 0 1 2.09-.6 3.87 3.87 0 0 1 2.05.6 4.71 4.71 0 0 1 1.58 1.59 3.87 3.87 0 0 1 .6 2.05 3.94 3.94 0 0 1-.6 2.08zm-.78-3.7a3.68 3.68 0 0 0-1.22-1.25 3.06 3.06 0 0 0-3.26 0 3.62 3.62 0 0 0-1.24 1.25 3.1 3.1 0 0 0-.47 1.62 3.13 3.13 0 0 0 .47 1.63 3.59 3.59 0 0 0 1.24 1.24 3.11 3.11 0 0 0 1.64.46 3 3 0 0 0 1.6-.47 3.84 3.84 0 0 0 1.19-1.24 3.17 3.17 0 0 0 .5-1.62 3 3 0 0 0-.48-1.62zm-2.91 2.32h-.49v1.44h-1v-4.23h1.61a1.7 1.7 0 0 1 1.13.35 1.26 1.26 0 0 1 .43 1 1.24 1.24 0 0 1-.67 1.21l1.09 1.63h-1.19zm-.49-.93h.59a.64.64 0 0 0 .44-.13.4.4 0 0 0 .16-.34c0-.31-.2-.46-.6-.46h-.59z"/>
+      </g>
+    </svg>
         <p style="font-size:13.5px;max-width:30ch">Esquadrias de PVC sob medida, fabricadas em São Leopoldo desde 2007.</p>
       </div>
 
