@@ -57,8 +57,9 @@ e acústico", então a página não entra por aí.
 especificador. A WIGGA publica os modelos em SketchUp, e isso não aparecia em
 lugar nenhum.
 
-**O CTA principal é o WhatsApp.** Cada seção fecha com um botão verde "Falar com
-um especialista". O formulário também termina no WhatsApp: ao enviar, a pessoa
+**O CTA principal é o WhatsApp.** O menu, o hero e cada seção fecham com um botão
+verde "Falar com um especialista", todos com a mesma largura. Não sobrou botão
+vermelho na página: o único acento em carmim agora é a marca e os detalhes. O formulário também termina no WhatsApp: ao enviar, a pessoa
 passa por `/obrigado`, que dispara a conversão e abre a conversa já com o resumo
 do que ela preencheu. O formulário existe para qualificar antes da conversa, não
 para substituí-la.

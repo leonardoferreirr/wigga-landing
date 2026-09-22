@@ -117,6 +117,7 @@ transition:transform .35s var(--ease-out),background-color .35s var(--ease-out),
 .btn--lg{padding:19px 38px;font-size:16px}
 .cta-linha{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:clamp(30px,4.5vh,48px)}
 .cta-linha--c{justify-content:center}
+.cta-linha--c .btn--lg{min-width:310px}
 .nav{
 position:fixed;inset:0 0 auto 0;z-index:60;color:var(--fg);
 display:flex;align-items:center;justify-content:space-between;gap:20px;
@@ -133,7 +134,9 @@ font-size:14px;opacity:.72;transition:opacity .3s var(--ease-out),border-color .
 }
 .nav__links a:hover{opacity:1;border-color:currentColor}
 .nav__cta{white-space:nowrap}
-@media (max-width:900px){.nav__links{display:none}.nav__cta{padding:12px 20px;font-size:14px}}
+.nav__cta svg{width:18px;height:18px;flex:0 0 auto;fill:currentColor}
+@media (max-width:900px){.nav__links{display:none}.nav__cta{padding:12px 18px;font-size:13.5px}}
+@media (max-width:420px){.nav__cta{padding:11px 15px;font-size:12.5px;gap:.45em}.nav__logo svg{height:22px}}
 .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:var(--ink);color:var(--fg)}
 .hero__stage{position:absolute;inset:0;--sash:0;--inset:clamp(14px,2.4vw,34px)}
 .hero__layer{position:absolute;inset:0;will-change:transform}
@@ -466,6 +469,11 @@ transition:border-color .3s var(--ease-out)
 .closer h2 em{font-style:normal;color:var(--brand)}
 .foot{background:var(--paper);border-top:1px solid var(--line-paper);padding-block:clamp(34px,5vh,58px);font-size:14px;color:var(--on-paper-dim)}
 .foot__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px}
+@media (max-width:640px){
+.foot__grid{grid-template-columns:repeat(2,1fr);gap:26px 20px}
+.foot__logo,.foot__grid>div:last-child{grid-column:1/-1}
+.foot__par{grid-column:auto}
+}
 .foot .foot__h{font-family:var(--font-body);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--on-paper-faint);margin-bottom:14px}
 .foot a:hover{color:var(--on-paper)}
 .foot__legal{margin-top:clamp(28px,4vh,44px);padding-top:22px;border-top:1px solid var(--line-paper);font-size:12.5px;color:var(--on-paper-faint);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
@@ -550,7 +558,9 @@ transition:transform .35s var(--ease-out)
     <a href="#arquitetos">Arquitetos</a>
     <a href="#obras">Obras</a>
   </nav>
-  <a class="btn btn--primary nav__cta" href="#orcamento">Pedir orçamento</a>
+  <a class="btn btn--zap nav__cta" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20especialista%20sobre%20esquadrias%20de%20PVC%20para%20a%20minha%20obra." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg><span class="nav__cta-txt">Falar com um especialista</span>
+  </a>
 </header>
 
 <main id="topo">
@@ -919,15 +929,17 @@ transition:transform .35s var(--ease-out)
           <li>A compatibilização não volta para trás na revisão do executivo.</li>
           <li>O memorial descritivo sai com a tipologia que vai ser fabricada de verdade.</li>
         </ul>
-        <div class="cta-linha rv rv-d3">
-          <a class="btn btn--primary btn--lg" href="https://www.wigga.com.br/" target="_blank" rel="noopener">Baixar os modelos em SketchUp</a>
-        </div>
+
         <!-- [A PREENCHER] se o download é livre ou pede cadastro, quais tipologias já estão disponíveis, e o link direto do arquivo. -->
       </div>
 
       <figure class="spec__media rv rv-d1">
         <img src="assets/img/grandes-vaos-800.webp" width="800" height="1198" loading="lazy" alt="Porta de correr aberta ligando a sala ao terraço, com perfil branco e vidro do piso ao teto">
       </figure>
+    </div>
+
+    <div class="cta-linha cta-linha--c rv rv-d3">
+      <a class="btn btn--zap btn--lg" href="https://www.wigga.com.br/" target="_blank" rel="noopener">Baixar os modelos em SketchUp</a>
     </div>
 
     <p class="spec__nota rv">Obra com muitas unidades? A conversa é outra: compatibilização com o projeto executivo, cronograma de entrega por torre e padronização de tipologia.</p>
@@ -1200,12 +1212,12 @@ transition:transform .35s var(--ease-out)
         <p style="font-size:13.5px;max-width:30ch">Esquadrias de PVC sob medida, fabricadas em São Leopoldo desde 2007.</p>
       </div>
 
-      <div>
+      <div class="foot__par">
         <p class="foot__h">Fábrica</p>
         <p>Rua Georg Hoefel, 360<br>São Leopoldo, RS<br>CEP 93145-600</p>
       </div>
 
-      <div>
+      <div class="foot__par">
         <p class="foot__h">Contato</p>
         <p><a href="https://wa.me/555135812444" data-zap>(51) 3581-2444</a><br>
         <a href="mailto:wigga@wigga.com.br">wigga@wigga.com.br</a><br>

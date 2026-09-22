@@ -35,13 +35,19 @@
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
     items.forEach(function (i) { io.observe(i); });
-    // failsafe: se algo ficar preso invisível, libera depois de 4s
-    setTimeout(function () {
-      document.querySelectorAll('.rv:not(.is-in)').forEach(function (i) {
-        var r = i.getBoundingClientRect();
-        if (r.top < window.innerHeight) i.classList.add('is-in');
+
+    // Rede de segurança: nada pode ficar invisível porque a animação não rodou.
+    // Um único timeout não bastava, porque quem ainda estava lá embaixo na hora
+    // do disparo nunca era conferido de novo. Então a checagem se repete
+    // enquanto houver bloco pendente, e se desliga sozinha quando acaba.
+    var tentativas = 0;
+    var vigia = setInterval(function () {
+      var pendentes = document.querySelectorAll('.rv:not(.is-in)');
+      if (!pendentes.length || ++tentativas > 40) { clearInterval(vigia); return; }
+      pendentes.forEach(function (i) {
+        if (i.getBoundingClientRect().top < window.innerHeight) i.classList.add('is-in');
       });
-    }, 4000);
+    }, 700);
   })();
 
   /* ---------------------------------------------------- hero: a janela */
