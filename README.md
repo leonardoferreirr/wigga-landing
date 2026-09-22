@@ -5,6 +5,9 @@ para receber tráfego pago do Google. Site estático, sem framework e sem
 dependência externa: todo o CSS vai embutido na página e o JavaScript é um
 arquivo só.
 
+Visual: só o hero é escuro, o resto da página é branco com texto preto e apoio em
+cinza. Títulos em Poppins Light, corpo em Inter Tight.
+
 Lighthouse no celular, com throttle real (`--throttling-method=devtools`):
 **100 / 100 / 100 / 100**. LCP 0,9 s, CLS 0,03, TBT 0 ms.
 
@@ -54,6 +57,10 @@ e acústico", então a página não entra por aí.
 especificador. A WIGGA publica os modelos em SketchUp, e isso não aparecia em
 lugar nenhum.
 
+**O CTA principal é o WhatsApp.** Cada seção fecha com um botão verde "Falar com
+um especialista". O formulário continua na página, como caminho para quem prefere
+escrever, e a nav aponta para ele.
+
 ## Antes de publicar
 
 ### 1. Onde o pedido vai ser gravado
@@ -67,10 +74,15 @@ planilha. É uma linha.
 
 ### 2. Conversão do Google Ads
 
-`obrigado.html` empurra `orcamento_enviado` para o `dataLayer` e tem o lugar
-marcado para o snippet do GTM. O container só carrega quando existe pedido de
-verdade na sessão, para visita direta à URL não registrar conversão. A conta de
-Ads e o container da WIGGA precisam ser ligados pelo Lucas.
+São dois eventos, os dois no `dataLayer`:
+
+- `clique_whatsapp`, disparado por qualquer botão verde da página, com o nome da
+  seção de onde saiu o clique. É o que mede o CTA principal.
+- `orcamento_enviado`, na página de obrigado, para quem preencheu o formulário.
+
+`obrigado.html` tem o lugar marcado para o snippet do GTM e só carrega o container
+quando existe pedido de verdade na sessão, para visita direta à URL não registrar
+conversão. A conta de Ads e o container da WIGGA precisam ser ligados pelo Lucas.
 
 ### 3. Os 15 dados que só a WIGGA tem
 
@@ -98,10 +110,16 @@ do funil. Uma ligação de vinte minutos com a WIGGA resolve a lista inteira.
 ### 4. Fotos
 
 O acervo veio do site atual da WIGGA. Dez fotos prestam para uma página premium,
-o resto é foto antiga de obra. O que falta e faria diferença: fábrica em
-operação, equipe instalando, detalhe do perfil em corte, e obras de litoral e de
-serra identificadas como tais (hoje as seções de litoral e serra usam foto de
-ambientação, sem afirmar o local).
+o resto é foto antiga de obra.
+
+**Hotéis, hospitais e escolas estão sem foto.** Os três cards têm o mesmo tamanho
+dos outros e mostram a marca d'água da janela no lugar da imagem. Assim que a
+WIGGA mandar uma obra de cada, é só trocar o bloco `app__img--vazio` por um `img`
+igual ao dos cards de cima.
+
+O que mais falta e faria diferença: fábrica em operação, equipe instalando,
+detalhe do perfil em corte, e obras de litoral e de serra identificadas como tais
+(hoje essas duas seções usam foto de ambientação, sem afirmar o local).
 
 ## Decisões que já foram tomadas, não são esquecimento
 
@@ -116,6 +134,8 @@ ambientação, sem afirmar o local).
   de superioridade que não dá para provar, e que envelhece mal.
 - **Litoral e serra sem foto legendada como tal**, porque não dá para confirmar
   onde cada obra do acervo fica.
+- **O logo é um SVG só, com o texto em `currentColor`.** Ele sai branco sobre o
+  hero escuro e escuro sobre fundo claro, sem precisar de dois arquivos.
 
 ## Contato que está na página
 

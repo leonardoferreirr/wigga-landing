@@ -305,6 +305,24 @@
     });
   });
 
+  /* ------------------------------------------- cliques no WhatsApp */
+  (function whats() {
+    var botoes = document.querySelectorAll('[data-zap]');
+    if (!botoes.length) return;
+    botoes.forEach(function (b) {
+      b.addEventListener('click', function () {
+        // O Ads mede isso como conversão de evento, sem precisar de página
+        // intermediária. O container do cliente escuta 'clique_whatsapp'.
+        var secao = b.closest('section');
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'clique_whatsapp',
+          secao: secao ? (secao.id || secao.classList[secao.classList.length - 1] || 'pagina') : 'flutuante'
+        });
+      });
+    });
+  })();
+
   /* -------------------------------------------- atribuição de campanha */
   var ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid', 'fbclid'];
   (function attribution() {
