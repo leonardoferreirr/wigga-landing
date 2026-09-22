@@ -128,6 +128,25 @@
       if (k === ' ' || k === 'Enter') { firstTouch(); go(target > 0.5 ? 0 : 1); e.preventDefault(); }
     });
 
+    // O puxador fica no meio do espaço livre entre o menu e o título. Em tela
+    // baixa esse espaço encolhe, então a alça encolhe junto em vez de cair
+    // por cima da headline.
+    function encaixa() {
+      var nav = document.querySelector('.nav');
+      var h1 = document.querySelector('.hero h1');
+      if (!nav || !h1) return;
+      var topo = nav.getBoundingClientRect().bottom;
+      var base = h1.getBoundingClientRect().top;
+      var livre = base - topo;
+      var alt = Math.max(48, Math.min(150, livre - 26));   // 48px ainda é alvo de toque válido
+      grip.style.height = alt + 'px';
+      grip.style.top = Math.max(topo + 12, topo + (livre - alt) / 2) + 'px';
+      grip.style.transform = 'translate(-50%,0)';
+    }
+    encaixa();
+    window.addEventListener('resize', encaixa);
+    window.addEventListener('load', encaixa);
+
     paint();
     // convite discreto: abre um pouco e volta, uma vez só
     if (!reduced) {

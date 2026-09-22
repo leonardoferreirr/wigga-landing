@@ -144,7 +144,7 @@ content:'';position:absolute;inset:0;pointer-events:none;
 background:linear-gradient(122deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 70%,rgba(255,255,255,.05) 100%);
 }
 .hero__grip{
-position:absolute;top:38%;z-index:8;
+position:absolute;top:clamp(104px,21svh,250px);z-index:8;
 left:calc(50% - var(--sash) * .92 * (50% - var(--inset)));
 transform:translate(-50%,-50%);
 width:clamp(44px,3.4vw,54px);height:clamp(112px,13vh,150px);
@@ -203,6 +203,14 @@ transition:opacity .5s var(--ease-out)
 .hero__hint.is-done{opacity:0}
 .hero__hint i{display:block;width:26px;height:1px;background:currentColor;animation:hintSlide 2.4s var(--ease-inout) infinite}
 @keyframes hintSlide{0%,100%{transform:translateX(0);opacity:.4}50%{transform:translateX(-8px);opacity:1}}
+@media (max-height:790px){
+.hero h1{font-size:clamp(28px,4.6vw,58px)}
+.hero__sub{margin-top:14px;font-size:14.5px;max-width:44ch}
+.hero__actions{margin-top:18px}
+.hero__hint{margin-top:14px}
+.hero__content{padding-bottom:clamp(22px,4vh,44px)}
+.hero__meter{top:clamp(80px,11vh,120px)}
+}
 @media (max-width:860px){
 .hero__in{clip-path:inset(0 calc(var(--sash) * 42%) 0 0)}
 .hero__meter{top:auto;bottom:calc(100% - 100svh + 16px);right:clamp(24px,5vw,34px);transform:none}
