@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WIGGA Esquadrias em PVC | Rio Grande do Sul</title>
-<meta name="description" content="Esquadrias de PVC sob medida, fabricadas há 19 anos em São Leopoldo. Acústica, vedação e nada de repintura. Peça o orçamento da sua obra com a WIGGA.">
+<title>Esquadrias de PVC sob medida para projetos de alto padrão | WIGGA</title>
+<meta name="description" content="Esquadrias de PVC sob medida para residências, edifícios, hotéis e outros projetos de alto padrão. Apresente seu projeto à equipe da WIGGA.">
 <link rel="canonical" href="https://wigga.com.br/">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="robots" content="index,follow">
@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="WIGGA">
-<meta property="og:title" content="WIGGA Esquadrias em PVC | Rio Grande do Sul">
-<meta property="og:description" content="Cada peça sai da fábrica no tamanho exato do seu vão, com tecnologia alemã e italiana e acabamento conferido à mão.">
+<meta property="og:title" content="Esquadrias de PVC sob medida para projetos de alto padrão | WIGGA">
+<meta property="og:description" content="Esquadrias de PVC sob medida para residências, edifícios, hotéis e outros projetos de alto padrão. Apresente seu projeto à equipe da WIGGA.">
 <meta property="og:image" content="https://wigga.com.br/assets/img/hero-residencia-1400.webp">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -219,9 +219,19 @@ content:'';position:absolute;inset:-14% 0 0;z-index:-1;pointer-events:none;
 background:linear-gradient(180deg,rgba(11,10,14,0) 0%,rgba(11,10,14,.28) 34%,rgba(11,10,14,.5) 68%,rgba(11,10,14,.52) 100%);
 }
 .hero__content .btn,.hero__content a{pointer-events:auto}
+.hero__kicker{
+margin-bottom:16px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+color:rgba(255,255,255,.72);text-shadow:0 1px 14px rgba(0,0,0,.55)
+}
 .hero h1{max-width:20ch;text-shadow:0 2px 40px rgba(0,0,0,.45)}
 .hero h1 em{font-style:normal;color:var(--brand);font-weight:400}
 .hero__sub{margin-top:22px;max-width:46ch;color:rgba(255,255,255,.9);font-size:clamp(15px,1.35vw,19px);text-shadow:0 1px 18px rgba(0,0,0,.5)}
+.hero__prova{
+margin-top:20px;padding-top:18px;max-width:46ch;
+border-top:1px solid rgba(255,255,255,.22);
+font-size:clamp(13px,1.05vw,14.5px);line-height:1.55;
+color:rgba(255,255,255,.76);text-shadow:0 1px 16px rgba(0,0,0,.5)
+}
 .hero__actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .hero__hint{
 margin-top:26px;display:inline-flex;align-items:center;gap:10px;
@@ -251,7 +261,7 @@ transition:opacity .5s var(--ease-out)
 .head{margin-bottom:clamp(28px,5vh,44px)}
 }
 .stats{background:var(--paper);border-bottom:1px solid var(--line-paper)}
-.stats__grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats__grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .stats__item{padding:clamp(30px,4vw,54px) clamp(14px,1.8vw,28px);border-left:1px solid var(--line-paper)}
 .stats__item:first-child{border-left:0}
 .stats__item b{
@@ -261,9 +271,9 @@ font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--on-paper);
 }
 .stats__item>span{display:block;margin-top:12px;color:var(--on-paper-dim);font-size:14px;line-height:1.45}
 @media (max-width:760px){
-.stats__grid{grid-template-columns:repeat(2,1fr)}
-.stats__item:nth-child(3){border-left:0}
-.stats__item:nth-child(n+3){border-top:1px solid var(--line-paper)}
+.stats__grid{grid-template-columns:1fr}
+.stats__item{border-left:0;border-top:1px solid var(--line-paper)}
+.stats__item:first-child{border-top:0}
 }
 .perf__media{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:21/9;margin:0 0 clamp(36px,6vh,68px)}
 .perf__media img{width:100%;height:100%;object-fit:cover}
@@ -271,11 +281,6 @@ font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--on-paper);
 .perf__item{padding-top:26px;border-top:1px solid var(--line-paper)}
 .perf__item h3{margin-bottom:12px}
 .perf__item p{color:var(--on-paper-dim);max-width:50ch}
-.perf__num{
-display:block;font-family:var(--font-display);font-weight:300;letter-spacing:-.02em;
-font-size:clamp(28px,3.2vw,44px);line-height:1;color:var(--brand);margin-bottom:16px;font-variant-numeric:tabular-nums
-}
-.perf__num small{font-size:.42em;letter-spacing:.06em;color:var(--on-paper-dim);margin-left:8px;font-family:var(--font-body);font-weight:500}
 @media (max-width:860px){
 .perf__list{grid-template-columns:1fr}
 .perf__media{aspect-ratio:16/10}
@@ -338,27 +343,7 @@ background:rgba(24,16,33,.06);cursor:pointer;flex:0 0 auto;transition:background
 .switch[aria-pressed="true"]{background:var(--brand);border-color:var(--brand)}
 .switch[aria-pressed="true"]::after{transform:translateX(23px);background:#fff}
 @media (max-width:900px){.colors__grid{grid-template-columns:1fr}}
-.vs__table{border-top:1px solid var(--line-paper)}
-.vs__row{
-display:grid;grid-template-columns:minmax(120px,.8fr) repeat(3,minmax(0,1fr));
-gap:clamp(12px,2vw,28px);padding:22px 0;border-bottom:1px solid var(--line-paper);align-items:start
-}
-.vs__row--head{position:sticky;top:0;background:var(--paper);z-index:2;padding-block:16px}
-.vs__row--head b{font-family:var(--font-display);font-weight:400;font-size:clamp(15px,1.5vw,19px);letter-spacing:-.01em}
-.vs__row--head b.is-brand{color:var(--brand)}
-.vs__crit{font-weight:600;font-size:15px}
-.vs__cell{font-size:14.5px;line-height:1.5;color:var(--on-paper-dim)}
-.vs__cell--win{color:var(--on-paper);font-weight:500}
-.vs__cell--win::before{content:'';display:block;width:26px;height:2px;background:var(--brand);margin-bottom:10px}
-@media (max-width:780px){
-.vs__row{grid-template-columns:1fr 1fr;row-gap:16px}
-.vs__crit{grid-column:1/-1;font-size:17px}
-.vs__row--head{display:none}
-.vs__cell::after{display:block;margin-top:6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-paper-faint)}
-.vs__cell:nth-child(2)::after{content:'Madeira'}
-.vs__cell:nth-child(3)::after{content:'Alumínio'}
-.vs__cell:nth-child(4)::after{content:'PVC Wigga'}
-}
+.porque__fecho{margin-top:18px;color:var(--on-paper);font-weight:500}
 .apps{background:var(--paper-2)}
 .apps__stack{position:relative;display:flex;flex-direction:column;gap:22px}
 .app{
@@ -467,6 +452,7 @@ transition:border-color .3s var(--ease-out)
 .closer{background:var(--paper);padding-block:clamp(60px,9vh,120px);border-top:1px solid var(--line-paper);overflow:hidden}
 .closer h2{font-size:clamp(26px,4vw,56px);text-align:center;line-height:1.16;max-width:34ch;margin-inline:auto;text-wrap:balance}
 .closer h2 em{font-style:normal;color:var(--brand)}
+.closer__txt{margin:22px auto 0;max-width:62ch;text-align:center;color:var(--on-paper-dim)}
 .foot{background:var(--paper);border-top:1px solid var(--line-paper);padding-block:clamp(34px,5vh,58px);font-size:14px;color:var(--on-paper-dim)}
 .foot__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px}
 @media (max-width:640px){
@@ -553,13 +539,13 @@ transition:transform .35s var(--ease-out)
   </a>
   <nav class="nav__links" aria-label="Seções">
     <a href="#desempenho">Desempenho</a>
-    <a href="#tipologias">Tipologias</a>
-    <a href="#cores">Colors 2026</a>
+    <a href="#tipologias">Soluções</a>
+    <a href="#cores">Acabamentos</a>
     <a href="#arquitetos">Arquitetos</a>
     <a href="#obras">Obras</a>
   </nav>
-  <a class="btn btn--zap nav__cta" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20especialista%20sobre%20esquadrias%20de%20PVC%20para%20a%20minha%20obra." target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg><span class="nav__cta-txt">Falar com um especialista</span>
+  <a class="btn btn--primary nav__cta" href="#orcamento">
+    <span class="nav__cta-txt">Apresentar meu projeto</span>
   </a>
 </header>
 
@@ -602,37 +588,36 @@ transition:transform .35s var(--ease-out)
 
   <div class="hero__content">
     <div class="wrap">
-      <h1>Esquadrias de PVC <br class="q-mob">que você escolhe <em>uma vez</em> <br class="q-mob">e não mexe mais</h1>
-      <p class="hero__sub">Cada peça sai da nossa fábrica em São Leopoldo no tamanho exato do seu vão, com tecnologia alemã e italiana e acabamento conferido à mão.</p>
+      <p class="hero__kicker">Esquadrias de PVC sob medida</p>
+      <h1>Cada projeto pede mais do que uma esquadria padrão.</h1>
+      <p class="hero__sub">De residências de alto padrão a edifícios e hotéis, a WIGGA desenvolve soluções para cada vão, considerando arquitetura, desempenho e acabamento.</p>
+      <p class="hero__prova">Fabricação própria em São Leopoldo, com tecnologia alemã e italiana e acabamento conferido à mão.</p>
       <div class="hero__actions">
-        <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20especialista%20sobre%20esquadrias%20de%20PVC%20para%20a%20minha%20obra." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-        </a>
-        <a class="btn btn--ghost btn--lg" href="#arquitetos">Sou arquiteto, quero os modelos 3D</a>
+        <a class="btn btn--primary btn--lg" href="#orcamento">Apresentar meu projeto</a>
+        <a class="btn btn--ghost btn--lg" href="#arquitetos">Sou arquiteto ou construtor</a>
       </div>
       <p class="hero__hint"><i></i> Arraste para abrir a janela</p>
     </div>
   </div>
 </section>
 
-<!-- ============================= NÚMEROS ============================= -->
+<!-- ============================= CREDENCIAIS =============================
+     Os quatro números antigos saíram: 180 km/h pede laudo por linha e
+     configuração, "11 tipologias" não batia com a lista e "2 linhas" só volta
+     se pronta entrega for oferta prioritária nos mercados da campanha. -->
 <section class="stats">
   <div class="stats__grid">
     <div class="stats__item rv">
-      <b><span data-count="19">19</span> anos</b>
-      <span>Trouxemos a tecnologia do PVC quando quase ninguém fabricava isso no Brasil.</span>
+      <b>Desde 2007</b>
+      <span>Esquadrias de PVC fabricadas em São Leopoldo</span>
     </div>
     <div class="stats__item rv rv-d1">
-      <b><span data-count="180">180</span> km/h</b>
-      <span>Vento suportado nas aplicações em edifício alto.</span>
+      <b>Sob medida</b>
+      <span>Tipologias e acabamentos definidos conforme o projeto</span>
     </div>
     <div class="stats__item rv rv-d2">
-      <b><span data-count="11">11</span> tipologias</b>
-      <span>Do maxim-ar ao vão de correr curvo, tudo desenhado para a sua medida.</span>
-    </div>
-    <div class="stats__item rv rv-d3">
-      <b><span data-count="2">2</span> linhas</b>
-      <span>Sob medida para o projeto, ou pronta entrega para o que não pode esperar.</span>
+      <b>Projetos diversos</b>
+      <span>Residências, edifícios, hotelaria e outros empreendimentos</span>
     </div>
   </div>
 </section>
@@ -641,8 +626,8 @@ transition:transform .35s var(--ease-out)
 <section class="section perf" id="desempenho">
   <div class="wrap">
     <div class="head rv">
-      <h2>O que muda depois<br>que a janela fecha</h2>
-      <p class="lead">Quatro coisas que você percebe morando, não na ficha técnica.</p>
+      <h2>O desempenho aparece no uso de cada ambiente.</h2>
+      <p class="lead">A esquadria influencia a entrada de luz, a relação com o exterior e o conforto ao longo do dia. Por isso, cada configuração precisa responder às condições reais do projeto.</p>
     </div>
 
     <figure class="perf__media rv">
@@ -654,33 +639,28 @@ transition:transform .35s var(--ease-out)
 
     <div class="perf__list">
       <article class="perf__item rv">
-        <h3>O barulho para na moldura</h3>
-        <p>A avenida continua lá fora, só que ela chega abafada. O perfil de PVC tem câmaras de ar por dentro e a folha fecha pressionando a vedação no perímetro inteiro.</p>
-        <!-- [A PREENCHER] Rw dos sistemas WIGGA, em decibéis. Entra aqui como número grande. -->
+        <h3>Mais controle sobre o ruído externo</h3>
+        <p>Em uma suíte voltada para a cidade, em um apartamento ou em um espaço de trabalho, a escolha do sistema de abertura, da vedação e do vidro faz parte da solução acústica.</p>
       </article>
 
       <article class="perf__item rv">
-        <h3>O ar-condicionado trabalha menos</h3>
-        <p>PVC quase não conduz calor. O alumínio esquenta junto com o sol e passa isso para dentro. Na prática, o quarto da face oeste para de virar estufa às quatro da tarde e o aparelho desliga sozinho antes.</p>
+        <h3>Ambientes mais confortáveis</h3>
+        <p>Os perfis de PVC contribuem para o isolamento térmico. A especificação considera também o vidro, a orientação solar e as características de cada ambiente.</p>
       </article>
 
       <article class="perf__item rv">
-        <span class="perf__num"><span data-count="180">180</span> km/h <small>de vento</small></span>
-        <h3>Chuva de lado e vento que assobia</h3>
-        <p>Em edifício alto a chuva não cai, ela bate de lado. A vedação segura água e ar no mesmo movimento em que a folha encosta, e a linha para edificação vertical resiste a ventos de até 180 km/h.</p>
+        <h3>Soluções para diferentes condições de obra</h3>
+        <p>Fachadas, andares altos e regiões expostas ao vento e à chuva exigem escolhas técnicas próprias. A WIGGA avalia a aplicação antes de definir a configuração da esquadria.</p>
       </article>
 
       <article class="perf__item rv">
-        <h3>A folha puxa contra o quadro</h3>
-        <p>Na hora de fechar dá para sentir: a alavanca gira e a folha trava contra o perfil em vez de só encostar. Não é peça de encaixar com o joelho. Ferragens e vidros são definidos por linha e por vão.</p>
-        <!-- [A PREENCHER] opções de fecho multiponto e de vidro por linha. -->
+        <h3>Funcionamento pensado para durar</h3>
+        <p>Abertura, ferragens e dimensões precisam fazer sentido para o uso previsto, seja em uma residência, em um edifício ou em um empreendimento de hospitalidade.</p>
       </article>
     </div>
 
     <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20especialista%20sobre%20esquadrias%20de%20PVC%20para%20a%20minha%20obra." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
+      <a class="btn btn--primary btn--lg" href="#orcamento">Conversar sobre meu projeto</a>
     </div>
   </div>
 </section>
@@ -689,39 +669,35 @@ transition:transform .35s var(--ease-out)
 <section class="section" id="tipologias">
   <div class="wrap">
     <div class="head rv">
-      <h2>Nenhuma esquadria<br>nasce igual à outra</h2>
-      <p class="lead lead--3">A obra não é padrão e o vão que o pedreiro deixou também não. Cada peça é desenhada para a medida que existe na sua obra, produzida na linha automatizada e terminada à mão antes de sair daqui.</p>
+      <h2>Uma solução para cada vão do projeto.</h2>
+      <p class="lead lead--3">A forma de abrir, as dimensões e o acabamento mudam conforme a arquitetura e o uso do espaço. A equipe da WIGGA avalia as possibilidades para especificar cada esquadria com coerência técnica e visual.</p>
     </div>
   </div>
 
+  <!-- Oito rótulos de navegação, como o documento define. Não é lista técnica
+       exaustiva: a nomenclatura comercial ainda precisa do aval da WIGGA. -->
   <div class="typo__rows rv">
     <div class="marquee">
       <div class="marquee__track">
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-correr"/></svg>Janela de correr</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-porta"/></svg>Porta de correr</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-vao"/></svg>Correr para grandes vãos</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-persiana"/></svg>Correr com persiana integrada</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-maxim"/></svg>Maxim-ar</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-oscilo"/></svg>Oscilo-batente</span>
+        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-correr"/></svg>Janelas de correr</span>
+        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-porta"/></svg>Portas de correr</span>
+        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-vao"/></svg>Grandes vãos</span>
+        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-persiana"/></svg>Persianas integradas</span>
       </div>
     </div>
     <div class="marquee marquee--rev">
       <div class="marquee__track">
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-bay"/></svg>Bay window</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-fixo"/></svg>Fixo</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-curvo"/></svg>Curvo</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-pivot"/></svg>Porta pivotante</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-giro"/></svg>Porta de giro</span>
-        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-vao"/></svg>Gradil, veneziana e lambri</span>
+        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-maxim"/></svg>Maxim-ar</span>
+        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-oscilo"/></svg>Oscilo-batente</span>
+        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-fixo"/></svg>Painéis fixos</span>
+        <span class="marquee__item"><svg viewBox="0 0 34 26" aria-hidden="true"><use href="#ic-curvo"/></svg>Soluções especiais</span>
       </div>
     </div>
   </div>
 
   <div class="wrap">
     <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20especialista%20sobre%20a%20tipologia%20certa%20para%20a%20minha%20obra." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
+      <a class="btn btn--primary btn--lg" href="#orcamento">Apresentar planta ou projeto</a>
     </div>
   </div>
 </section>
@@ -730,10 +706,14 @@ transition:transform .35s var(--ease-out)
 <section class="section colors" id="cores">
   <div class="wrap">
     <div class="head rv">
-      <h2>Colors 2026:<br>a cor é película, não tinta</h2>
-      <p class="lead">Laminada de fábrica, não pintada por cima: não descasca, não pede repintura e não entra na manutenção da casa daqui a cinco anos. Dá para fazer bicolor, uma cor na fachada e outra dentro do ambiente.</p>
+      <h2>A escolha da cor também faz parte da arquitetura.</h2>
+      <p class="lead">A coleção Colors 2026 reúne acabamentos para compor fachadas e ambientes internos com unidade visual. Há opções que reproduzem a aparência da madeira, tons escuros e composições bicolores, conforme disponibilidade da linha e do projeto.</p>
+      <p class="lead">Explore os acabamentos e veja possibilidades de combinação entre a face externa e a interna.</p>
     </div>
-    <!-- [A PREENCHER] garantia da laminação contra desbotamento. -->
+    <!-- Saíram "não descasca" e "não pede repintura": o documento pede
+         características comprovadas do acabamento específico, sem prometer
+         ausência total de manutenção. Nomes, amostras e disponibilidade das
+         cores continuam pendentes de conferência com a WIGGA. -->
 
     <div class="colors__grid">
       <div class="sampler rv">
@@ -759,86 +739,50 @@ transition:transform .35s var(--ease-out)
           <span>Ver em bicolor: a cor por fora, branco por dentro</span>
         </div>
 
-        <p class="lead rv rv-d3" style="margin-top:22px;font-size:14.5px">Cores especiais sob consulta. Maçanetas nas linhas Quadri e Artis, em Jetblack, Titânio e Branco.</p>
       </div>
     </div>
 
     <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20especialista%20sobre%20as%20cores%20da%20linha%20Colors%202026." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
+      <a class="btn btn--primary btn--lg" href="#orcamento">Consultar acabamentos para meu projeto</a>
     </div>
   </div>
 </section>
 
-<!-- ============================= COMPARATIVO ============================= -->
-<section class="section vs">
+<!-- ===================== POR QUE PVC =====================
+     A tabela comparativa com alumínio e madeira saiu: ela generalizava sobre
+     gasto com energia e custo ao longo dos anos sem equivalência de sistemas
+     nem dado na página. No lugar, a seção curta que o documento define. -->
+<section class="section porque">
   <div class="wrap">
     <div class="head rv">
-      <h2>PVC, alumínio e madeira:<br>o que muda na prática</h2>
-    </div>
-
-    <div class="vs__table">
-      <div class="vs__row vs__row--head">
-        <span></span><b>Madeira</b><b>Alumínio</b><b class="is-brand">PVC da Wigga</b>
-      </div>
-
-      <div class="vs__row rv">
-        <div class="vs__crit">Perto do mar e na serra</div>
-        <div class="vs__cell">Absorve umidade, incha, empena e pede verniz de tempos em tempos.</div>
-        <div class="vs__cell">O sal ataca a camada de proteção, a pintura mancha e a ferragem trava.</div>
-        <div class="vs__cell vs__cell--win">A maresia bate e vai embora. Não enferruja, não apodrece, não cria ponto branco.</div>
-      </div>
-
-      <div class="vs__row rv">
-        <div class="vs__crit">Manutenção nos próximos dez anos</div>
-        <div class="vs__cell">Lixa e verniz, e de novo alguns anos depois, para sempre.</div>
-        <div class="vs__cell">Repintura ou retoque quando a camada abre, com andaime se for fachada alta.</div>
-        <div class="vs__cell vs__cell--win">Água, pano e pronto. Sai da lista de manutenção da casa.</div>
-      </div>
-
-      <div class="vs__row rv">
-        <div class="vs__crit">Barulho da rua</div>
-        <div class="vs__cell">Veda bem enquanto está reta. Depois que empena, entra vento e entra som.</div>
-        <div class="vs__cell">Metal transmite som e vibra, precisa de vidro mais caro para compensar.</div>
-        <div class="vs__cell vs__cell--win">O perfil tem câmaras de ar por dentro, que quebram a passagem do som.</div>
-      </div>
-
-      <div class="vs__row rv">
-        <div class="vs__crit">Calor e conta de energia</div>
-        <div class="vs__cell">Isola bem, enquanto a vedação continuar inteira.</div>
-        <div class="vs__cell">Esquenta e joga o calor para dentro. Só resolve com ruptura térmica, uma barreira dentro do perfil, que encarece a peça.</div>
-        <div class="vs__cell vs__cell--win">Não conduz calor. Encoste no perfil num dia de sol e ele está frio.</div>
-      </div>
-
-      <div class="vs__row rv">
-        <div class="vs__crit">O que isso custa no fim</div>
-        <div class="vs__cell">Preço de alto padrão na compra, mais uma rotina de manutenção que não acaba.</div>
-        <div class="vs__cell">Entra mais barato e volta a cada repintura, troca de vedação e conta de ar-condicionado.</div>
-        <div class="vs__cell vs__cell--win">Entra mais caro na planilha da obra e sai do orçamento de manutenção.</div>
-      </div>
+      <h2>Por que especificar esquadrias de PVC?</h2>
+      <p class="lead">Além das possibilidades de acabamento e abertura, o PVC oferece características de isolamento térmico e resistência à corrosão que podem ser relevantes em diferentes regiões e tipos de obra. O resultado final depende da configuração escolhida, do vidro e da instalação.</p>
+      <p class="lead porque__fecho">A WIGGA ajuda a avaliar essas escolhas a partir das exigências do seu projeto.</p>
     </div>
 
     <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20especialista%20e%20entender%20o%20custo%20de%20esquadrias%20de%20PVC%20na%20minha%20obra." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
+      <a class="btn btn--primary btn--lg" href="#orcamento">Falar com a equipe da WIGGA</a>
     </div>
   </div>
 </section>
 
-<!-- ============================= APLICAÇÕES ============================= -->
+<!-- ============================= APLICAÇÕES =============================
+     Quatro aplicações, como o documento lista. Litoral, serra, hospitais e
+     escolas saíram: só voltam se forem prioridade comercial real e houver obra
+     verificável. Onde não há foto de obra WIGGA na categoria, o cartão usa a
+     marca d'água, claramente distinta do portfólio, e não uma foto emprestada. -->
 <section class="section apps">
   <div class="wrap">
     <div class="head rv">
-      <h2>Onde essas esquadrias<br>já estão trabalhando</h2>
+      <h2>Da residência ao empreendimento, uma solução para cada escala.</h2>
+      <p class="lead">O contexto muda. O cuidado com especificação, fabricação e acabamento acompanha cada projeto.</p>
     </div>
 
     <div class="apps__stack">
       <article class="app" style="--i:0">
         <div class="app__txt">
-          <h3>Residencial de alto padrão</h3>
-          <p>Vão grande, folha pesada correndo leve e o silêncio que a casa foi projetada para ter.</p>
+          <h3>Residências de alto padrão</h3>
+          <p>Grandes aberturas, integração entre ambientes e acabamentos escolhidos para acompanhar a arquitetura.</p>
         </div>
         <div class="app__img">
           <img src="assets/img/residencia-palmeiras-1000.webp" srcset="assets/img/residencia-palmeiras-640.webp 640w, assets/img/residencia-palmeiras-1000.webp 1000w" sizes="(max-width:860px) 92vw, 46vw" width="1000" height="647" loading="lazy" alt="Residência contemporânea de dois pavimentos com grandes panos de vidro e esquadrias brancas">
@@ -847,8 +791,8 @@ transition:transform .35s var(--ease-out)
 
       <article class="app" style="--i:1">
         <div class="app__txt">
-          <h3>Edificação vertical</h3>
-          <p>Altura muda tudo: a chuva bate de lado e o vento chega a 180 km/h. A linha é dimensionada para essa condição.</p>
+          <h3>Edifícios residenciais</h3>
+          <p>Soluções definidas para as condições da edificação, com atenção à padronização de tipologias e à execução em escala.</p>
         </div>
         <div class="app__img">
           <img src="assets/img/edificio-noturno-1000.webp" srcset="assets/img/edificio-noturno-640.webp 640w, assets/img/edificio-noturno-1000.webp 1000w" sizes="(max-width:860px) 92vw, 46vw" width="1000" height="534" loading="lazy" alt="Edifícios residenciais iluminados ao anoitecer, com esquadrias em todas as varandas">
@@ -857,80 +801,45 @@ transition:transform .35s var(--ease-out)
 
       <article class="app" style="--i:2">
         <div class="app__txt">
-          <h3>Litoral</h3>
-          <p>A maresia come ferragem, pintura e parafuso. No PVC ela bate, escorre e não deixa marca.</p>
+          <h3>Hotéis e hospitalidade</h3>
+          <p>Esquadrias pensadas para o conforto dos hóspedes e para a identidade arquitetônica dos espaços.</p>
         </div>
-        <div class="app__img">
-          <img src="assets/img/fachada-detalhe-1000.webp" srcset="assets/img/fachada-detalhe-640.webp 640w, assets/img/fachada-detalhe-1000.webp 1000w" sizes="(max-width:860px) 92vw, 46vw" width="1000" height="665" loading="lazy" alt="Detalhe de fachada com esquadrias inclinadas e vidro refletindo o céu">
+        <div class="app__img app__img--vazio" aria-hidden="true">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-wigga" transform="translate(37 32) scale(1.05)"/></svg>
         </div>
       </article>
 
       <article class="app" style="--i:3">
         <div class="app__txt">
-          <h3>Serra</h3>
-          <p>Umidade o ano inteiro, fungo na parede, cupim na madeira. Nada disso encontra o que fazer com o PVC.</p>
-        </div>
-        <div class="app__img">
-          <img src="assets/img/residencia-noite-1000.webp" srcset="assets/img/residencia-noite-640.webp 640w, assets/img/residencia-noite-1000.webp 1000w" sizes="(max-width:860px) 92vw, 46vw" width="1000" height="750" loading="lazy" alt="Residência iluminada ao anoitecer com esquadrias de piso a teto voltadas para o jardim">
-        </div>
-      </article>
-
-      <article class="app" style="--i:4">
-        <div class="app__txt">
-          <h3>Hotéis</h3>
-          <p>Hóspede dormindo às três da tarde com a rua acordada do lado de fora. É isso que a janela precisa resolver.</p>
+          <h3>Projetos comerciais e institucionais</h3>
+          <p>Tipologias e configurações avaliadas de acordo com o uso, a dimensão dos vãos e as exigências de cada ambiente.</p>
         </div>
         <div class="app__img app__img--vazio" aria-hidden="true">
           <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-wigga" transform="translate(37 32) scale(1.05)"/></svg>
         </div>
       </article>
-
-      <article class="app" style="--i:5">
-        <div class="app__txt">
-          <h3>Hospitais</h3>
-          <p>Superfície lisa, sem poro para fungo e bactéria, que se limpa com pano e desinfetante na rotina do setor.</p>
-        </div>
-        <div class="app__img app__img--vazio" aria-hidden="true">
-          <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-wigga" transform="translate(37 32) scale(1.05)"/></svg>
-        </div>
-      </article>
-
-      <article class="app" style="--i:6">
-        <div class="app__txt">
-          <h3>Escolas</h3>
-          <p>Quadra, pátio e sirene do lado de fora. Aula concentrada do lado de dentro, com esquadria que aguenta uso pesado.</p>
-        </div>
-        <div class="app__img app__img--vazio" aria-hidden="true">
-          <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-wigga" transform="translate(37 32) scale(1.05)"/></svg>
-        </div>
-      </article>
-    </div>
-
-    <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20especialista%20sobre%20esquadrias%20de%20PVC%20para%20o%20meu%20tipo%20de%20obra." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
     </div>
   </div>
 </section>
 
-<!-- ============================= ARQUITETOS ============================= -->
+<!-- ============================= ARQUITETOS =============================
+     Saíram as garantias de que a compatibilização "não volta para trás" e de
+     que não há ajuste depois da medição. Conferir se o link dos modelos 3D
+     está atual e se o download funciona no celular. -->
 <section class="section spec" id="arquitetos">
   <div class="wrap">
     <div class="head rv">
-      <h2>Para quem desenha<br>antes de comprar</h2>
+      <h2>Especificar bem começa antes da obra.</h2>
     </div>
 
     <div class="spec__grid">
       <div class="spec__col">
-        <p class="lead rv rv-d1">Os modelos das nossas esquadrias estão em SketchUp, prontos para entrar no seu arquivo. Você projeta com o perfil real, não com um bloco genérico.</p>
-        <ul class="rv rv-d2">
-          <li>O vão fecha certo já no projeto, sem ajuste depois da medição.</li>
-          <li>A compatibilização não volta para trás na revisão do executivo.</li>
-          <li>O memorial descritivo sai com a tipologia que vai ser fabricada de verdade.</li>
-        </ul>
+        <p class="lead rv rv-d1">A WIGGA disponibiliza modelos de suas esquadrias para uso em SketchUp. Assim, arquitetos podem estudar as possibilidades de abertura e proporção dentro do próprio projeto e conversar com a equipe sobre a solução adequada para cada aplicação.</p>
 
-        <!-- [A PREENCHER] se o download é livre ou pede cadastro, quais tipologias já estão disponíveis, e o link direto do arquivo. -->
+        <div class="cta-linha rv rv-d2">
+          <a class="btn btn--primary btn--lg" href="https://www.wigga.com.br/" target="_blank" rel="noopener">Acessar modelos para SketchUp</a>
+          <a class="btn btn--ghost btn--lg" href="#orcamento">Falar sobre um projeto</a>
+        </div>
       </div>
 
       <figure class="spec__media rv rv-d1">
@@ -938,26 +847,18 @@ transition:transform .35s var(--ease-out)
       </figure>
     </div>
 
-    <div class="cta-linha cta-linha--c rv rv-d3">
-      <a class="btn btn--zap btn--lg" href="https://www.wigga.com.br/" target="_blank" rel="noopener">Baixar os modelos em SketchUp</a>
-    </div>
-
-    <p class="spec__nota rv">Obra com muitas unidades? A conversa é outra: compatibilização com o projeto executivo, cronograma de entrega por torre e padronização de tipologia.</p>
-    <!-- [A PREENCHER] canal direto para construtoras e obras de grande volume. -->
-
-    <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Sou%20arquiteto%20e%20quero%20falar%20com%20um%20especialista%20sobre%20especifica%C3%A7%C3%A3o%20de%20esquadrias%20de%20PVC." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
-    </div>
+    <p class="spec__nota rv">Projetos com múltiplas unidades pedem alinhamento entre especificação, padronização e planejamento de fornecimento. Apresente o escopo para que a equipe avalie a demanda.</p>
   </div>
 </section>
 
-<!-- ============================= PROCESSO ============================= -->
+<!-- ============================= PROCESSO =============================
+     Não afirmar que medição local e instalação são sempre executadas pela
+     WIGGA: a responsabilidade vai na proposta, caso a caso, sobretudo fora do
+     Rio Grande do Sul. -->
 <section class="section steps">
   <div class="wrap">
     <div class="head rv">
-      <h2>Do primeiro contato<br>até a janela instalada</h2>
+      <h2>Do projeto à entrega, cada escolha tem sua etapa.</h2>
     </div>
 
     <div class="steps__grid">
@@ -965,40 +866,35 @@ transition:transform .35s var(--ease-out)
         <div class="steps__line"><i></i></div>
 
         <div class="step">
-          <em>ETAPA 01</em>
-          <b>Conversa</b>
-          <span>Você manda a planta, a foto do vão ou o que já tiver em mãos. Entendemos a obra antes de falar de preço.</span>
+          <em>01</em>
+          <b>Apresentação do projeto</b>
+          <span>Envie a planta, as informações dos vãos ou o material que já estiver disponível. Nossa equipe entende o tipo de obra, a localização e as necessidades da aplicação.</span>
         </div>
         <div class="step">
-          <em>ETAPA 02</em>
+          <em>02</em>
           <b>Especificação</b>
-          <span>Tipologia, cor, vidro, ferragem e sentido de abertura definidos peça por peça. O orçamento sai já nessa base, sem surpresa depois.</span>
+          <span>Avaliamos tipologias, acabamentos, ferragens e vidros para preparar uma proposta alinhada ao escopo apresentado.</span>
         </div>
         <div class="step">
-          <em>ETAPA 03</em>
-          <b>Medição</b>
-          <span>Medição no local antes de qualquer corte, porque planta mostra o vão do projeto e obra tem o vão que ficou.</span>
-          <!-- [A PREENCHER] quem vai até a obra medir e em que fase da obra isso acontece. -->
+          <em>03</em>
+          <b>Conferência de medidas</b>
+          <span>As dimensões de execução são confirmadas na etapa prevista para o projeto, conforme o escopo contratado.</span>
         </div>
         <div class="step">
-          <em>ETAPA 04</em>
+          <em>04</em>
           <b>Fabricação</b>
-          <span>A linha automatizada corta, solda e monta. O acabamento é feito à mão, peça por peça, antes de embalar.</span>
-          <!-- [A PREENCHER] prazo médio de produção. -->
+          <span>As esquadrias são produzidas na fábrica da WIGGA em São Leopoldo, com acabamento conferido à mão.</span>
         </div>
         <div class="step">
-          <em>ETAPA 05</em>
+          <em>05</em>
           <b>Entrega e instalação</b>
-          <span>Esquadria boa instalada errado vira esquadria ruim, então essa etapa vai por escrito na proposta.</span>
-          <!-- [A PREENCHER] se a instalação é por equipe própria ou credenciada, se entra no orçamento e como funciona o pós-obra. -->
+          <span>Prazos, abrangência da entrega e responsabilidade pela instalação são especificados na proposta.</span>
         </div>
       </div>
     </div>
 
     <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Quero%20falar%20com%20um%20especialista%20e%20come%C3%A7ar%20o%20or%C3%A7amento%20da%20minha%20obra." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
+      <a class="btn btn--primary btn--lg" href="#orcamento">Apresentar meu projeto</a>
     </div>
   </div>
 </section>
@@ -1007,8 +903,11 @@ transition:transform .35s var(--ease-out)
 <section class="section works" id="obras">
   <div class="wrap">
     <div class="head rv">
-      <h2>Obras que<br>já estão de pé</h2>
+      <h2>Conheça a WIGGA em projetos realizados.</h2>
+      <p class="lead">Explore soluções de esquadrias aplicadas em diferentes propostas arquitetônicas e escalas de obra.</p>
     </div>
+    <!-- Legenda por obra (tipo de projeto, cidade e solução aplicada) fica
+         pendente: o documento pede confirmação com a WIGGA antes de publicar. -->
 
     <div class="works__grid">
       <figure class="work work--tall rv">
@@ -1026,65 +925,47 @@ transition:transform .35s var(--ease-out)
     </div>
 
     <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Vi%20as%20obras%20no%20site%20e%20quero%20falar%20com%20um%20especialista." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
+      <a class="btn btn--primary btn--lg" href="#orcamento">Conversar sobre um projeto semelhante</a>
     </div>
   </div>
 </section>
 
-<!-- ============================= FAQ ============================= -->
+<!-- ============================= FAQ =============================
+     Seis perguntas, na redação do documento. Saíram a de preço contra alumínio
+     ("a conta se inverte rápido", sem simulação) e a de garantia, que só volta
+     quando a WIGGA informar prazo, componentes e condições reais. Cobertura
+     geográfica, reforma e instalação ainda pedem conferência com o comercial. -->
 <section class="section faq">
   <div class="wrap">
     <div class="head rv">
-      <h2>Perguntas que<br>aparecem sempre</h2>
+      <h2>Perguntas frequentes</h2>
     </div>
 
     <div class="faq__list rv rv-d1">
       <div class="faq__item">
-        <button class="faq__q" type="button">Esquadria de PVC é mais cara que alumínio?<i></i></button>
-        <div class="faq__a"><p>Na planilha da obra, quase sempre sim. No custo por ano de uso, não. O alumínio pede repintura, sofre com maresia e conduz calor, o que volta na conta de energia. O PVC sai da rotina de manutenção: lava e pronto. Numa casa que vai ficar de pé por décadas, a conta se inverte rápido.</p></div>
+        <button class="faq__q" type="button">A WIGGA atende projetos fora do Rio Grande do Sul?<i></i></button>
+        <div class="faq__a"><p>Sim. A fábrica fica em São Leopoldo e a WIGGA avalia projetos em diferentes regiões. Informe a cidade e o estado da obra para que a equipe confirme as condições de atendimento e fornecimento.</p></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" type="button">Qual é o prazo de entrega?<i></i></button>
-        <div class="faq__a"><p>Depende da tipologia, da cor e do volume. Uma peça da linha pronta entrega sai bem antes de uma janela curva sob medida em cor especial. O prazo fechado vai no orçamento, junto com o preço.</p></div>
-        <!-- [A PREENCHER] prazo médio de produção e de entrega por linha. -->
+        <button class="faq__q" type="button">É possível desenvolver esquadrias para grandes vãos?<i></i></button>
+        <div class="faq__a"><p>A WIGGA trabalha com diferentes sistemas e tipologias. As possibilidades dependem das dimensões, do tipo de abertura e das exigências técnicas do projeto. Envie a planta para uma avaliação.</p></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" type="button">Tem quantidade mínima?<i></i></button>
-        <div class="faq__a"><p>Se você tem um vão só para resolver, diga isso no formulário. A gente responde se compensa fazer sob medida ou se o caminho é a linha pronta entrega.</p></div>
-        <!-- [A PREENCHER] quantidade mínima de esquadrias por pedido, se houver. -->
+        <button class="faq__q" type="button">Como são definidos os vidros e os acabamentos?<i></i></button>
+        <div class="faq__a"><p>A especificação considera o uso do ambiente, a arquitetura e as condições da obra. As opções disponíveis são apresentadas durante o atendimento e detalhadas na proposta.</p></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" type="button">Quem faz a instalação?<i></i></button>
-        <div class="faq__a"><p>A instalação é metade do resultado, e ela é combinada por escrito antes de a peça sair da fábrica.</p></div>
-        <!-- [A PREENCHER] instalação por equipe própria, credenciada ou por conta do cliente, e se entra no valor. -->
+        <button class="faq__q" type="button">Qual é o prazo de fabricação e entrega?<i></i></button>
+        <div class="faq__a"><p>O prazo depende das tipologias, dos acabamentos, do volume e do local da obra. Ele é informado na proposta comercial.</p></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" type="button">Qual é a garantia?<i></i></button>
-        <div class="faq__a"><p>Depois da obra, o atendimento continua pela central de relacionamento com o cliente, no crc@wigga.com.br.</p></div>
-        <!-- [A PREENCHER] prazo de garantia do perfil, da laminação, das ferragens e do vidro, e o que cada uma cobre. -->
+        <button class="faq__q" type="button">A WIGGA também atende reformas?<i></i></button>
+        <div class="faq__a"><p>Sim, a viabilidade depende das condições do vão existente e do escopo da reforma. Envie fotos ou o projeto para uma análise inicial.</p></div>
       </div>
       <div class="faq__item">
-        <button class="faq__q" type="button">Quem faz a medição?<i></i></button>
-        <div class="faq__a"><p>A medição é feita no local, nunca só pela planta. Planta tem o vão do projeto, obra tem o vão que ficou, e a diferença entre os dois é o que gera retrabalho.</p></div>
-        <!-- [A PREENCHER] quem realiza a medição e em que fase ela é agendada. -->
+        <button class="faq__q" type="button">Como funciona a instalação?<i></i></button>
+        <div class="faq__a"><p>A responsabilidade e a abrangência da instalação são definidas para cada projeto e registradas na proposta.</p></div>
       </div>
-      <div class="faq__item">
-        <button class="faq__q" type="button">Serve para reforma, com a casa já pronta?<i></i></button>
-        <div class="faq__a"><p>Serve. Dá para substituir a esquadria existente aproveitando o vão, com o acabamento resolvido nas laterais. Manda foto do vão atual pelo formulário, isso adianta metade da conversa.</p></div>
-        <!-- [A PREENCHER] como funciona a troca em imóvel pronto, se exige quebra e quem repara o acabamento. -->
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" type="button">Vocês atendem a minha cidade?<i></i></button>
-        <div class="faq__a"><p>Atendemos Sul, Sudeste, Centro-Oeste e Distrito Federal, além de Uruguai e países vizinhos. A fábrica fica em São Leopoldo, no Rio Grande do Sul. Se a sua obra está fora dessas regiões, escreva mesmo assim.</p></div>
-      </div>
-    </div>
-
-    <div class="cta-linha cta-linha--c rv">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20e%20quero%20falar%20com%20um%20especialista." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
     </div>
   </div>
 </section>
@@ -1093,9 +974,8 @@ transition:transform .35s var(--ease-out)
 <section class="section cta" id="orcamento">
   <div class="wrap">
     <div class="head rv">
-      <h2>Conte da obra, a gente<br>volta com o orçamento</h2>
-      <p class="lead">Preencha e a conversa já abre no WhatsApp com tudo o que você escreveu.</p>
-      <!-- [A PREENCHER] prazo de retorno prometido, para entrar nesta linha. -->
+      <h2>Conte à WIGGA sobre o seu projeto.</h2>
+      <p class="lead">Compartilhe as informações que você já tem. Nossa equipe avaliará sua demanda e entrará em contato para conversar sobre as soluções possíveis.</p>
     </div>
 
     <div class="cta__grid">
@@ -1117,64 +997,78 @@ transition:transform .35s var(--ease-out)
 
         <div class="form__row">
           <div class="field">
-            <label for="f-mail">E-mail</label>
-            <input id="f-mail" name="email" type="email" autocomplete="email" placeholder="voce@email.com">
-            <span class="field__err">E-mail inválido</span>
-          </div>
-          <div class="field">
             <label for="f-cidade">Cidade e estado da obra</label>
             <input id="f-cidade" name="cidade" type="text" placeholder="Porto Alegre, RS">
             <span class="field__err">Diga onde é a obra</span>
+          </div>
+          <div class="field">
+            <label for="f-perfil">Perfil do contato</label>
+            <select id="f-perfil" name="perfil">
+              <option value="">Selecione</option>
+              <option>Proprietário ou investidor</option>
+              <option>Arquiteto ou designer</option>
+              <option>Construtora ou incorporadora</option>
+              <option>Gestor de hotel ou empreendimento</option>
+              <option>Outro</option>
+            </select>
+            <span class="field__err">Escolha uma opção</span>
           </div>
         </div>
 
         <div class="form__row">
           <div class="field">
-            <label for="f-perfil">Você é</label>
-            <select id="f-perfil" name="perfil">
+            <label for="f-projeto">Tipo de projeto</label>
+            <select id="f-projeto" name="projeto">
               <option value="">Selecione</option>
-              <option>Dono da obra</option>
-              <option>Arquiteto ou designer</option>
-              <option>Construtora</option>
+              <option>Residência</option>
+              <option>Apartamento</option>
+              <option>Edifício residencial</option>
+              <option>Hotel ou pousada</option>
+              <option>Comercial ou institucional</option>
+              <option>Outro</option>
             </select>
             <span class="field__err">Escolha uma opção</span>
           </div>
           <div class="field">
-            <label for="f-qtd">Quantas esquadrias</label>
+            <label for="f-fase">Fase do projeto</label>
+            <select id="f-fase" name="fase">
+              <option value="">Selecione</option>
+              <option>Estudo ou anteprojeto</option>
+              <option>Projeto executivo</option>
+              <option>Obra em andamento</option>
+              <option>Reforma</option>
+              <option>Outra</option>
+            </select>
+            <span class="field__err">Escolha uma opção</span>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="f-mail">E-mail <small>(opcional)</small></label>
+            <input id="f-mail" name="email" type="email" autocomplete="email" placeholder="voce@email.com">
+            <span class="field__err">E-mail inválido</span>
+          </div>
+          <div class="field">
+            <label for="f-qtd">Quantidade aproximada de esquadrias <small>(opcional)</small></label>
             <select id="f-qtd" name="quantidade">
               <option value="">Selecione</option>
               <option>1 a 4</option>
               <option>5 a 10</option>
               <option>Mais de 10</option>
             </select>
-            <span class="field__err">Escolha uma opção</span>
           </div>
         </div>
 
         <div class="form__row form__row--1">
           <div class="field">
-            <label for="f-fase">Fase da obra</label>
-            <select id="f-fase" name="fase">
-              <option value="">Selecione</option>
-              <option>Ainda em projeto</option>
-              <option>Alvenaria pronta, esperando a esquadria</option>
-              <option>Reforma em imóvel pronto</option>
-            </select>
-            <span class="field__err">Escolha uma opção</span>
+            <label for="f-msg">Descrição da demanda <small>(opcional)</small></label>
+            <textarea id="f-msg" name="mensagem" rows="2" placeholder="Tipologia, acabamento, dimensão dos vãos, prazo. Qualquer detalhe ajuda."></textarea>
           </div>
         </div>
 
-        <div class="form__row form__row--1">
-          <div class="field">
-            <label for="f-msg">Conte o que você precisa</label>
-            <textarea id="f-msg" name="mensagem" rows="2" placeholder="Tipologia, cor, tamanho do vão, prazo. Qualquer detalhe ajuda."></textarea>
-          </div>
-        </div>
-
-        <button class="btn btn--zap" type="submit">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-        </button>
-        <p class="form__note">Seus dados vão direto para o time comercial da Wigga. Nada de lista de disparo.</p>
+        <button class="btn btn--primary" type="submit">Enviar meu projeto</button>
+        <p class="form__note">Se tiver planta ou referências, você poderá enviá-las à equipe durante o atendimento.</p>
       </form>
     </div>
 
@@ -1185,11 +1079,10 @@ transition:transform .35s var(--ease-out)
 <!-- ============================= FECHAMENTO ============================= -->
 <section class="closer">
   <div class="wrap">
-    <h2 class="rv">Piso troca, tinta refaz, móvel substitui.<br><em>A esquadria fica.</em></h2>
+    <h2 class="rv">O resultado aparece quando a esquadria faz parte do projeto desde o início.</h2>
+    <p class="closer__txt rv">Apresente sua obra à WIGGA e converse com a equipe sobre tipologias, acabamentos e especificações para cada ambiente.</p>
     <div class="cta-linha cta-linha--c rv rv-d1">
-      <a class="btn btn--zap btn--lg" data-zap href="https://wa.me/555135812444?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20com%20um%20especialista%20sobre%20esquadrias%20de%20PVC%20para%20a%20minha%20obra." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zap"/></svg>Falar com um especialista
-      </a>
+      <a class="btn btn--primary btn--lg" href="#orcamento">Apresentar meu projeto</a>
     </div>
   </div>
 </section>

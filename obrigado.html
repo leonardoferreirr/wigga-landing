@@ -205,9 +205,19 @@ content:'';position:absolute;inset:-14% 0 0;z-index:-1;pointer-events:none;
 background:linear-gradient(180deg,rgba(11,10,14,0) 0%,rgba(11,10,14,.28) 34%,rgba(11,10,14,.5) 68%,rgba(11,10,14,.52) 100%);
 }
 .hero__content .btn,.hero__content a{pointer-events:auto}
+.hero__kicker{
+margin-bottom:16px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+color:rgba(255,255,255,.72);text-shadow:0 1px 14px rgba(0,0,0,.55)
+}
 .hero h1{max-width:20ch;text-shadow:0 2px 40px rgba(0,0,0,.45)}
 .hero h1 em{font-style:normal;color:var(--brand);font-weight:400}
 .hero__sub{margin-top:22px;max-width:46ch;color:rgba(255,255,255,.9);font-size:clamp(15px,1.35vw,19px);text-shadow:0 1px 18px rgba(0,0,0,.5)}
+.hero__prova{
+margin-top:20px;padding-top:18px;max-width:46ch;
+border-top:1px solid rgba(255,255,255,.22);
+font-size:clamp(13px,1.05vw,14.5px);line-height:1.55;
+color:rgba(255,255,255,.76);text-shadow:0 1px 16px rgba(0,0,0,.5)
+}
 .hero__actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .hero__hint{
 margin-top:26px;display:inline-flex;align-items:center;gap:10px;
@@ -237,7 +247,7 @@ transition:opacity .5s var(--ease-out)
 .head{margin-bottom:clamp(28px,5vh,44px)}
 }
 .stats{background:var(--paper);border-bottom:1px solid var(--line-paper)}
-.stats__grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats__grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .stats__item{padding:clamp(30px,4vw,54px) clamp(14px,1.8vw,28px);border-left:1px solid var(--line-paper)}
 .stats__item:first-child{border-left:0}
 .stats__item b{
@@ -247,9 +257,9 @@ font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--on-paper);
 }
 .stats__item>span{display:block;margin-top:12px;color:var(--on-paper-dim);font-size:14px;line-height:1.45}
 @media (max-width:760px){
-.stats__grid{grid-template-columns:repeat(2,1fr)}
-.stats__item:nth-child(3){border-left:0}
-.stats__item:nth-child(n+3){border-top:1px solid var(--line-paper)}
+.stats__grid{grid-template-columns:1fr}
+.stats__item{border-left:0;border-top:1px solid var(--line-paper)}
+.stats__item:first-child{border-top:0}
 }
 .perf__media{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:21/9;margin:0 0 clamp(36px,6vh,68px)}
 .perf__media img{width:100%;height:100%;object-fit:cover}
@@ -257,11 +267,6 @@ font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--on-paper);
 .perf__item{padding-top:26px;border-top:1px solid var(--line-paper)}
 .perf__item h3{margin-bottom:12px}
 .perf__item p{color:var(--on-paper-dim);max-width:50ch}
-.perf__num{
-display:block;font-family:var(--font-display);font-weight:300;letter-spacing:-.02em;
-font-size:clamp(28px,3.2vw,44px);line-height:1;color:var(--brand);margin-bottom:16px;font-variant-numeric:tabular-nums
-}
-.perf__num small{font-size:.42em;letter-spacing:.06em;color:var(--on-paper-dim);margin-left:8px;font-family:var(--font-body);font-weight:500}
 @media (max-width:860px){
 .perf__list{grid-template-columns:1fr}
 .perf__media{aspect-ratio:16/10}
@@ -324,27 +329,7 @@ background:rgba(24,16,33,.06);cursor:pointer;flex:0 0 auto;transition:background
 .switch[aria-pressed="true"]{background:var(--brand);border-color:var(--brand)}
 .switch[aria-pressed="true"]::after{transform:translateX(23px);background:#fff}
 @media (max-width:900px){.colors__grid{grid-template-columns:1fr}}
-.vs__table{border-top:1px solid var(--line-paper)}
-.vs__row{
-display:grid;grid-template-columns:minmax(120px,.8fr) repeat(3,minmax(0,1fr));
-gap:clamp(12px,2vw,28px);padding:22px 0;border-bottom:1px solid var(--line-paper);align-items:start
-}
-.vs__row--head{position:sticky;top:0;background:var(--paper);z-index:2;padding-block:16px}
-.vs__row--head b{font-family:var(--font-display);font-weight:400;font-size:clamp(15px,1.5vw,19px);letter-spacing:-.01em}
-.vs__row--head b.is-brand{color:var(--brand)}
-.vs__crit{font-weight:600;font-size:15px}
-.vs__cell{font-size:14.5px;line-height:1.5;color:var(--on-paper-dim)}
-.vs__cell--win{color:var(--on-paper);font-weight:500}
-.vs__cell--win::before{content:'';display:block;width:26px;height:2px;background:var(--brand);margin-bottom:10px}
-@media (max-width:780px){
-.vs__row{grid-template-columns:1fr 1fr;row-gap:16px}
-.vs__crit{grid-column:1/-1;font-size:17px}
-.vs__row--head{display:none}
-.vs__cell::after{display:block;margin-top:6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-paper-faint)}
-.vs__cell:nth-child(2)::after{content:'Madeira'}
-.vs__cell:nth-child(3)::after{content:'Alumínio'}
-.vs__cell:nth-child(4)::after{content:'PVC Wigga'}
-}
+.porque__fecho{margin-top:18px;color:var(--on-paper);font-weight:500}
 .apps{background:var(--paper-2)}
 .apps__stack{position:relative;display:flex;flex-direction:column;gap:22px}
 .app{
@@ -453,6 +438,7 @@ transition:border-color .3s var(--ease-out)
 .closer{background:var(--paper);padding-block:clamp(60px,9vh,120px);border-top:1px solid var(--line-paper);overflow:hidden}
 .closer h2{font-size:clamp(26px,4vw,56px);text-align:center;line-height:1.16;max-width:34ch;margin-inline:auto;text-wrap:balance}
 .closer h2 em{font-style:normal;color:var(--brand)}
+.closer__txt{margin:22px auto 0;max-width:62ch;text-align:center;color:var(--on-paper-dim)}
 .foot{background:var(--paper);border-top:1px solid var(--line-paper);padding-block:clamp(34px,5vh,58px);font-size:14px;color:var(--on-paper-dim)}
 .foot__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px}
 @media (max-width:640px){
@@ -523,9 +509,13 @@ transition:transform .35s var(--ease-out)
   var pedido = null;
   try { pedido = JSON.parse(sessionStorage.getItem('wg_pedido') || 'null'); } catch (e) {}
 
+  // A ordem aqui e a ordem da mensagem no WhatsApp. Acompanha os campos do
+  // formulario: o tipo de projeto entrou e a quantidade virou opcional, entao
+  // ela so aparece na mensagem quando a pessoa realmente escolheu.
   var LABELS = {
-    nome: 'Nome', whatsapp: 'WhatsApp', email: 'E-mail', cidade: 'Obra em',
-    perfil: 'Perfil', fase: 'Fase da obra', quantidade: 'Esquadrias', mensagem: 'Detalhes'
+    nome: 'Nome', whatsapp: 'WhatsApp', cidade: 'Obra em',
+    perfil: 'Perfil do contato', projeto: 'Tipo de projeto', fase: 'Fase do projeto',
+    email: 'E-mail', quantidade: 'Esquadrias', mensagem: 'Detalhes'
   };
 
   if (!pedido) {
@@ -569,8 +559,9 @@ transition:transform .35s var(--ease-out)
   window.dataLayer.push({
     event: 'orcamento_enviado',
     perfil: pedido.perfil || '',
-    quantidade: pedido.quantidade || '',
+    projeto: pedido.projeto || '',
     fase: pedido.fase || '',
+    quantidade: pedido.quantidade || '',
     eventCallback: irParaOZap,
     eventTimeout: 2000
   });

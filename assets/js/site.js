@@ -382,13 +382,18 @@
       e.preventDefault();
       if (f.querySelector('.hp').value) return;              // isca de robô
 
+      // Obrigatórios pelo documento de orientações: nome, WhatsApp, cidade e
+      // estado da obra, perfil do contato, tipo de projeto e fase do projeto.
+      // E-mail, quantidade e descrição ficaram opcionais. O e-mail só reclama
+      // quando está preenchido e malformado, para não barrar quem deixou vazio.
       var ok = true;
       var nome = f.querySelector('[name="nome"]');
       var mail = f.querySelector('[name="email"]');
       ok = bad(nome, nome.value.trim().length < 3) && ok;
       ok = bad(fone, fone.value.replace(/\D+/g, '').length < 10) && ok;
-      ok = bad(mail, !/^[^@\s]+@[^@\s.]+\.[^@\s]{2,}$/.test(mail.value.trim())) && ok;
-      ['cidade', 'perfil', 'fase', 'quantidade'].forEach(function (n) {
+      var mailTxt = mail.value.trim();
+      ok = bad(mail, mailTxt !== '' && !/^[^@\s]+@[^@\s.]+\.[^@\s]{2,}$/.test(mailTxt)) && ok;
+      ['cidade', 'perfil', 'projeto', 'fase'].forEach(function (n) {
         var el = f.querySelector('[name="' + n + '"]');
         if (el) ok = bad(el, !el.value) && ok;
       });
