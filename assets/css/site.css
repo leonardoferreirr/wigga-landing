@@ -427,7 +427,13 @@ p{margin:0}
 /* ==========================================================================
    Processo
    ========================================================================== */
-.steps__grid{max-width:840px;margin-inline:auto}
+/* O bloco encolhe ate perto da largura real do texto e ai centraliza de
+   verdade: com os 840px antigos ele ocupava a caixa toda mas o texto parava
+   nos 514, e a pilha ficava deslocada para a esquerda embaixo de um titulo
+   centrado. E max-width em pixel, nao width:fit-content: com fit-content a
+   largura do bloco segue o conteudo, entao a troca da fonte de fallback pela
+   Inter Tight redimensionava a pilha e custava 0,04 de CLS no celular. */
+.steps__grid{max-width:580px;margin-inline:auto}
 .steps__list{position:relative;padding-left:clamp(28px,4vw,54px)}
 .steps__line{position:absolute;left:0;top:10px;bottom:10px;width:1px;background:var(--line-paper)}
 .steps__line i{position:absolute;inset:0 auto 0 0;width:1px;background:var(--brand);height:var(--p,0%);transition:height .25s linear}
@@ -439,7 +445,7 @@ p{margin:0}
 }
 .step.is-on::before{background:var(--brand);border-color:var(--brand)}
 .step b{display:block;font-family:var(--font-display);font-weight:400;font-size:clamp(18px,1.9vw,24px);letter-spacing:-.01em;margin-bottom:8px}
-.step span{color:var(--on-paper-dim);max-width:48ch;display:block}
+.step span{color:var(--on-paper-dim);max-width:54ch;display:block}
 .step em{font-style:normal;font-size:12px;letter-spacing:.2em;color:var(--on-paper-faint);display:block;margin-bottom:12px;font-variant-numeric:tabular-nums}
 
 
@@ -558,4 +564,23 @@ p{margin:0}
   .rv{opacity:1;transform:none}
   .work::after{transform:scaleY(0)}
   .marquee__track{animation:none}
+}
+
+/* ==========================================================================
+   Desktop: títulos em duas linhas, subtítulos em duas
+   ==========================================================================
+   O bloco de cabeçalho é centrado e curto, então a medida pode ser bem maior
+   que a de um parágrafo corrido. Com a largura antiga (54ch), um subtítulo de
+   três frases virava quatro linhas estreitas empilhadas no meio da página.
+   `balance` distribui as duas linhas em vez de deixar uma longa e um toco.
+   O corte é 901px, o mesmo em que o menu do topo reaparece: com o corte em
+   1041 a largura do subtítulo pulava de 468 para 958 de um pixel para o
+   outro, e a faixa de tablet ficava com o texto bem mais estreito que a régua
+   do resto da página. */
+@media (min-width:901px){
+  .head .lead,
+  .head .sec-lead,
+  .head .lead--3{max-width:none;text-wrap:balance}
+  /* o título mais longo da página só fecha em duas linhas na largura inteira */
+  .apps .head h2{max-width:none}
 }

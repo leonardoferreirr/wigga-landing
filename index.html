@@ -378,7 +378,7 @@ height:clamp(268px,38vh,340px);
 .spec__grid{grid-template-columns:1fr}
 .spec__media{min-height:0;height:auto;aspect-ratio:4/3;order:-1;margin-bottom:24px}
 }
-.steps__grid{max-width:840px;margin-inline:auto}
+.steps__grid{max-width:580px;margin-inline:auto}
 .steps__list{position:relative;padding-left:clamp(28px,4vw,54px)}
 .steps__line{position:absolute;left:0;top:10px;bottom:10px;width:1px;background:var(--line-paper)}
 .steps__line i{position:absolute;inset:0 auto 0 0;width:1px;background:var(--brand);height:var(--p,0%);transition:height .25s linear}
@@ -390,7 +390,7 @@ transform:translateX(-4px);transition:background-color .4s var(--ease-out),borde
 }
 .step.is-on::before{background:var(--brand);border-color:var(--brand)}
 .step b{display:block;font-family:var(--font-display);font-weight:400;font-size:clamp(18px,1.9vw,24px);letter-spacing:-.01em;margin-bottom:8px}
-.step span{color:var(--on-paper-dim);max-width:48ch;display:block}
+.step span{color:var(--on-paper-dim);max-width:54ch;display:block}
 .step em{font-style:normal;font-size:12px;letter-spacing:.2em;color:var(--on-paper-faint);display:block;margin-bottom:12px;font-variant-numeric:tabular-nums}
 .works__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.8vw,24px)}
 .work{position:relative;overflow:hidden;border-radius:var(--radius);background:var(--paper-2);aspect-ratio:4/3;margin:0}
@@ -482,6 +482,12 @@ transition:transform .35s var(--ease-out)
 .rv{opacity:1;transform:none}
 .work::after{transform:scaleY(0)}
 .marquee__track{animation:none}
+}
+@media (min-width:901px){
+.head .lead,
+.head .sec-lead,
+.head .lead--3{max-width:none;text-wrap:balance}
+.apps .head h2{max-width:none}
 }</style><!--/CSS-->
 
 <script type="application/ld+json">
