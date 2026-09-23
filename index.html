@@ -62,7 +62,7 @@ font-weight:100 900; font-style:normal; font-display:swap;
 --t-body:clamp(15px,1.15vw,17px);
 --lh-body:1.62;
 --tracking-display:-.02em;
---section-py:clamp(72px,11vh,148px);
+--section-py:clamp(55px,7vw,95px);
 --maxw:1280px;
 --gutter:clamp(20px,4vw,64px);
 --radius:14px;
@@ -286,7 +286,7 @@ font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--on-paper);
 .perf__media{aspect-ratio:16/10}
 }
 .marquee{overflow:hidden;display:flex;user-select:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee__track{display:flex;flex:0 0 auto;min-width:100%;animation:marquee 46s linear infinite}
+.marquee__track{display:flex;flex:0 0 auto;min-width:100%;animation:marquee var(--dur,46s) linear infinite}
 .marquee--rev .marquee__track{animation-direction:reverse}
 .marquee:hover .marquee__track{animation-play-state:paused}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}

@@ -210,6 +210,18 @@
       var half = Array.prototype.slice.call(track.children);
       half.forEach(function (n) { track.appendChild(n.cloneNode(true)); });
       track.setAttribute('aria-hidden', 'false');
+
+      // Velocidade constante em pixels por segundo. Com duração fixa no CSS a
+      // faixa andava a 19 px/s num celular e a 66 num monitor largo, porque a
+      // distância de um ciclo é metade da largura do trilho, e o trilho cresce
+      // com a tela. 22 px/s é leitura calma em qualquer largura.
+      var PX_POR_SEGUNDO = 22;
+      var ajusta = function () {
+        var dist = track.scrollWidth / 2;
+        if (dist > 0) track.style.setProperty('--dur', (dist / PX_POR_SEGUNDO).toFixed(1) + 's');
+      };
+      ajusta();
+      addEventListener('resize', ajusta, { passive: true });
     });
   })();
 
