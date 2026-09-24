@@ -134,17 +134,22 @@
       if (k === ' ' || k === 'Enter') { firstTouch(); go(target > 0.5 ? 0 : 1); e.preventDefault(); }
     });
 
-    // O puxador fica no meio do espaço livre entre o menu e o título. Em tela
+    // O puxador fica no meio do espaço livre entre o menu e o texto. Em tela
     // baixa esse espaço encolhe, então a alça encolhe junto em vez de cair
     // por cima da headline.
+    //
+    // A conta media até o h1 e ignorava o kicker, que vem antes dele: no
+    // celular a alça terminava 22px depois do começo de "ESQUADRIAS DE PVC SOB
+    // MEDIDA" e escrevia por cima. O limite é o primeiro texto que aparece,
+    // seja ele qual for.
     function encaixa() {
       var nav = document.querySelector('.nav');
-      var h1 = document.querySelector('.hero h1');
-      if (!nav || !h1) return;
+      var primeiro = document.querySelector('.hero__kicker') || document.querySelector('.hero h1');
+      if (!nav || !primeiro) return;
       var topo = nav.getBoundingClientRect().bottom;
-      var base = h1.getBoundingClientRect().top;
+      var base = primeiro.getBoundingClientRect().top;
       var livre = base - topo;
-      var alt = Math.max(48, Math.min(150, livre - 26));   // 48px ainda é alvo de toque válido
+      var alt = Math.max(48, Math.min(150, livre - 32));   // 48px ainda é alvo de toque válido
       grip.style.height = alt + 'px';
       grip.style.top = Math.max(topo + 12, topo + (livre - alt) / 2) + 'px';
       grip.style.transform = 'translate(-50%,0)';
@@ -235,6 +240,18 @@
     var bicolor = document.querySelector('.switch');
     var current = null;
 
+    // A legenda corre pela travessa de baixo, que é a própria cor da amostra.
+    // Em branco ela sumia na Platina e enfraquecia na Golden OAK, então a cor
+    // do texto segue o brilho do acabamento em vez de ser fixa.
+    function claro(hex) {
+      var h = String(hex).replace('#', '');
+      if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+      var n = parseInt(h, 16);
+      if (isNaN(n)) return false;
+      var r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+      return (0.299 * r + 0.587 * g + 0.114 * b) > 150;
+    }
+
     function apply() {
       if (!current) return;
       var c = current.getAttribute('data-color');
@@ -242,6 +259,8 @@
       frame.style.setProperty('--sw', c);
       var isBi = bicolor && bicolor.getAttribute('aria-pressed') === 'true';
       frame.style.setProperty('--sw-in', isBi ? '#F2F0EC' : c);
+      box.style.setProperty('--sw-txt', claro(c) ? 'rgba(24,16,33,.78)' : 'rgba(255,255,255,.92)');
+      box.style.setProperty('--sw-txt-sombra', claro(c) ? 'none' : '0 1px 3px rgba(0,0,0,.45)');
       if (legend) legend.textContent = isBi ? name + ' por fora, branco por dentro' : name;
     }
     swatches.forEach(function (s) {
