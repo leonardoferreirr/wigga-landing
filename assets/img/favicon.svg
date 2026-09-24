@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.36 56.69">
-  <!-- Um path só, com o miolo vazado pela regra de preenchimento, igual ao
-       wigga-mark.svg do site. Antes o miolo era um retângulo branco sólido: na
-       aba escura do navegador virava um quadrado branco dentro do vermelho, em
-       vez do vazado que a marca tem no site institucional. -->
-  <path d="M0 0v56.69h45.36V0zm34 45.35H11.34v-34H34z" fill="#DC0432"/>
+  <!-- Marca em vermelho, fundo e miolo transparentes (o miolo é vazado por
+       fill-rule, nada de retângulo branco). Assim a aba escura do navegador
+       aparece por dentro, em vez de um quadrado branco. -->
+  <path fill="#DC0432" fill-rule="evenodd" d="M0 0v56.69h45.36V0zm34 45.35H11.34v-34H34z"/>
 </svg>
