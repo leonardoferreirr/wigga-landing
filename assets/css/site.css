@@ -481,9 +481,24 @@ p{margin:0}
 .app__img img{width:100%;height:100%;object-fit:cover}
 .app__img--vazio{display:grid;place-items:center;background:var(--paper-2);border-left:1px solid var(--line-paper)}
 .app__img--vazio svg{width:min(46%,150px);height:auto;color:rgba(220,4,50,.22)}
+/* No celular os cartões continuam empilhando, que é a graça da seção. O que
+   muda é a proporção: a foto vai para cima, o texto para baixo, e o cartão
+   ganha altura fixa para caber embaixo do menu com folga.
+
+   A altura usa svh, não vh: no celular a barra do navegador recolhe, e com vh
+   o cartão passaria da tela justamente enquanto a pessoa rola. O degrau entre
+   um cartão e o outro é menor que no desktop, porque a tela é mais estreita e
+   com 13px o último cartão começaria fora de vista. */
 @media (max-width:860px){
-  .app{grid-template-columns:1fr;position:relative;top:0;height:auto}
-  .app__img{aspect-ratio:16/10;order:-1}
+  .app{
+    grid-template-columns:1fr;
+    grid-template-rows:minmax(0,1fr) auto;
+    top:calc(78px + var(--i,0) * 12px);
+    height:clamp(340px,50vh,420px);
+    height:clamp(340px,50svh,420px)
+  }
+  .app__img{order:-1}
+  .app__txt{padding:clamp(20px,5vw,30px)}
 }
 
 /* ==========================================================================

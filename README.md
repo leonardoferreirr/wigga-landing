@@ -67,6 +67,12 @@ acabamento, a versão em pé (`-v`), a deitada (`-h`) e a bolinha do seletor
 (`-dot`). Os `data-color` dos botões são a cor média de cada amostra e servem de
 fundo enquanto a imagem carrega e de base para o JS escolher a cor da legenda.
 
+**Os cartões de Aplicações empilham, inclusive no celular.** Cada cartão é
+`position:sticky` com um degrau de `--i`, e o seguinte sobe por cima deixando a
+borda do anterior à mostra. No celular o sticky estava desligado; voltou em 29/09
+com altura fixa em `svh`, não `vh`, porque a barra do navegador recolhe durante a
+rolagem e com `vh` o cartão passaria da tela bem na hora do efeito.
+
 **A seção de arquitetos** existe porque nenhum concorrente fala com o
 especificador. A WIGGA publica os modelos em SketchUp, e isso não aparecia em
 lugar nenhum.
@@ -129,11 +135,16 @@ O acervo veio do site atual da WIGGA. Dez fotos prestam para uma página premium
 o resto é foto antiga de obra.
 
 Em 29/09 a WIGGA mandou dez fotos de obras recentes, feitas por fotógrafo, com o
-recado de que preferia essas às de celular. Duas já entraram, nos dois pontos que
-ela apontou: a sala do Desempenho e a primeira obra do grid. As outras oito estão
-em `_src/2026-09-29/acervo-novo` e ainda cabem: no grid de Obras, as três fotos
-que sobraram ao lado da nova são justamente as de celular, e o contraste ficou
-visível. Trocar as três é a próxima rodada barata de qualidade.
+recado de que preferia essas às de celular. Quatro entraram: a sala do Desempenho
+e três das quatro do grid de Obras. O resto está em `_src/2026-09-29/acervo-novo`.
+
+No grid de Obras **só uma era mesmo foto de celular**, a do sobrado ao sol a pino
+com a caminhonete no fundo. As outras duas que estavam lá eram profissionais: a
+residência de madeira ao entardecer saiu porque era 16/9 num bloco 4/3 e 3/4, ou
+seja, sempre cortada pela metade, e a foto nova do mesmo tipo é melhor. **O
+edifício vertical fica**: é drone profissional e é a única prova de obra em
+altura na página, que a seção de Aplicações afirma. Trocar por mais uma casa
+deixaria o grid com quatro residências e enfraqueceria o argumento.
 
 **Hotelaria e projetos comerciais estão sem foto.** Os dois cards têm o mesmo
 tamanho dos outros e mostram a marca d'água da janela no lugar da imagem, que é

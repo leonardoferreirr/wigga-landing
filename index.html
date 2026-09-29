@@ -394,8 +394,15 @@ height:clamp(268px,38vh,340px);
 .app__img--vazio{display:grid;place-items:center;background:var(--paper-2);border-left:1px solid var(--line-paper)}
 .app__img--vazio svg{width:min(46%,150px);height:auto;color:rgba(220,4,50,.22)}
 @media (max-width:860px){
-.app{grid-template-columns:1fr;position:relative;top:0;height:auto}
-.app__img{aspect-ratio:16/10;order:-1}
+.app{
+grid-template-columns:1fr;
+grid-template-rows:minmax(0,1fr) auto;
+top:calc(78px + var(--i,0) * 12px);
+height:clamp(340px,50vh,420px);
+height:clamp(340px,50svh,420px)
+}
+.app__img{order:-1}
+.app__txt{padding:clamp(20px,5vw,30px)}
 }
 .spec{background:var(--paper);overflow:hidden}
 .spec__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(30px,5vw,80px);align-items:stretch}
@@ -978,8 +985,15 @@ transition:transform .35s var(--ease-out)
          pendente: o documento pede confirmação com a WIGGA antes de publicar. -->
 
     <div class="works__grid">
+      <!-- Este bloco é 4/3 no desktop e 3/4 abaixo de 640px, então vai de
+           picture: a foto é em pé e um recorte só perderia metade dela numa das
+           duas telas. No corte deitado o foco sobe, porque o assunto é a casa
+           acesa atrás da esquadria, não a piscina. -->
       <figure class="work work--tall rv">
-        <img src="assets/img/residencia-madeira-1000.webp" srcset="assets/img/residencia-madeira-640.webp 640w, assets/img/residencia-madeira-1000.webp 1000w" sizes="(max-width:640px) 92vw, 46vw" width="1000" height="562" loading="lazy" alt="Residência com painéis de madeira e esquadrias escuras na fachada">
+        <picture>
+          <source media="(max-width:640px)" srcset="assets/img/residencia-anoitecer-3x4-640.webp 640w, assets/img/residencia-anoitecer-3x4-900.webp 900w" sizes="92vw">
+          <img src="assets/img/residencia-anoitecer-1000.webp" srcset="assets/img/residencia-anoitecer-640.webp 640w, assets/img/residencia-anoitecer-1000.webp 1000w" sizes="46vw" width="1000" height="750" loading="lazy" alt="Residência ao anoitecer com porta de correr de piso a teto, cozinha acesa ao fundo, deck de madeira e piscina">
+        </picture>
       </figure>
       <figure class="work rv rv-d1">
         <!-- Trocada em 29/09/2026 junto com a da seção de desempenho, pelo mesmo
@@ -987,7 +1001,10 @@ transition:transform .35s var(--ease-out)
         <img src="assets/img/residencia-deck-1000.webp" srcset="assets/img/residencia-deck-640.webp 640w, assets/img/residencia-deck-1000.webp 1000w" sizes="(max-width:640px) 92vw, 46vw" width="1000" height="750" loading="lazy" alt="Deck de madeira com piscina, portas de correr escuras de piso a teto e araucárias ao fundo">
       </figure>
       <figure class="work rv rv-d1">
-        <img src="assets/img/obra-02-1000.webp" srcset="assets/img/obra-02-640.webp 640w, assets/img/obra-02-1000.webp 1000w" sizes="(max-width:640px) 92vw, 46vw" width="1000" height="750" loading="lazy" alt="Sobrado moderno com grandes vãos envidraçados e varanda">
+        <!-- A que saiu era a única foto de celular do grid: sol a pino, céu
+             estourado e uma caminhonete estacionada no fundo. Esta entra
+             também para variar a arquitetura, que estava toda contemporânea. -->
+        <img src="assets/img/residencia-varanda-880.webp" srcset="assets/img/residencia-varanda-640.webp 640w, assets/img/residencia-varanda-880.webp 880w" sizes="(max-width:640px) 92vw, 46vw" width="880" height="660" loading="lazy" alt="Fachada de fundos com pergolado de madeira e portas de correr envidraçadas abertas para o jardim">
       </figure>
       <figure class="work work--tall rv">
         <img src="assets/img/edificio-vertical-800.webp" width="800" height="1067" loading="lazy" alt="Edifício alto com esquadrias escuras, visto de baixo contra o céu">
