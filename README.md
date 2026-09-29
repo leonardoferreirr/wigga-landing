@@ -36,6 +36,7 @@ obrigado.html     página de conversão, monta a mensagem do WhatsApp
 assets/css/       fonte do CSS (embutido no build)
 assets/js/        comportamento: janela do hero, formulário, revelações
 assets/img/       fotos em WebP, várias larguras
+assets/img/tex/   as oito amostras da Colors 2026, recortadas do PDF da WIGGA
 assets/fonts/     Poppins Light e Inter Tight, self-hosted, 60 KB no total
 _src/             originais das fotos e a copy em markdown (fora do deploy)
 ```
@@ -52,6 +53,19 @@ antes de qualquer texto sobre ele.
 Isso sustenta o título, o comparativo (o quinto critério é custo por ano, não
 preço de compra) e o fechamento. Os concorrentes todos disputam "conforto térmico
 e acústico", então a página não entra por aí.
+
+**A amostra de acabamento é o material de verdade.** O caixilho da seção
+Acabamentos não é um retângulo pintado: cada peça do perfil recorta a foto da
+amostra que a WIGGA mandou, como máscara de recorte, e o grão acompanha o
+comprimento da peça, deitado nas travessas e em pé nos montantes. Os cantos
+fecham em meia esquadria. Foi o que resolveu a reclamação de 23/09 de que as
+cores não estavam fiéis: acabamento amadeirado não se representa com um hex.
+
+As imagens saem do PDF `Cores esquadrias` por `tools/gerar-texturas.py`. Se a
+WIGGA mandar amostras novas, é rodar o script de novo: ele gera, para cada
+acabamento, a versão em pé (`-v`), a deitada (`-h`) e a bolinha do seletor
+(`-dot`). Os `data-color` dos botões são a cor média de cada amostra e servem de
+fundo enquanto a imagem carrega e de base para o JS escolher a cor da legenda.
 
 **A seção de arquitetos** existe porque nenhum concorrente fala com o
 especificador. A WIGGA publica os modelos em SketchUp, e isso não aparecia em
@@ -100,7 +114,7 @@ aberto, agora do lado da WIGGA e não do texto:
 
 | Onde | O que falta |
 |---|---|
-| Acabamentos | nomes, amostras e disponibilidade das cores da Colors 2026 |
+| Acabamentos | ~~nomes e amostras~~ chegaram em 29/09 e estão na página. Falta a disponibilidade: quais dos oito saem em qualquer linha e quais dependem de pedido |
 | Soluções | nomenclatura comercial das oito tipologias |
 | Arquitetos | link dos modelos SketchUp: se está atual e se baixa no celular |
 | Obras | legenda de cada obra: tipo de projeto, cidade e solução aplicada |
@@ -113,6 +127,13 @@ aberto, agora do lado da WIGGA e não do texto:
 
 O acervo veio do site atual da WIGGA. Dez fotos prestam para uma página premium,
 o resto é foto antiga de obra.
+
+Em 29/09 a WIGGA mandou dez fotos de obras recentes, feitas por fotógrafo, com o
+recado de que preferia essas às de celular. Duas já entraram, nos dois pontos que
+ela apontou: a sala do Desempenho e a primeira obra do grid. As outras oito estão
+em `_src/2026-09-29/acervo-novo` e ainda cabem: no grid de Obras, as três fotos
+que sobraram ao lado da nova são justamente as de celular, e o contraste ficou
+visível. Trocar as três é a próxima rodada barata de qualidade.
 
 **Hotelaria e projetos comerciais estão sem foto.** Os dois cards têm o mesmo
 tamanho dos outros e mostram a marca d'água da janela no lugar da imagem, que é

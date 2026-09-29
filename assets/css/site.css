@@ -354,37 +354,78 @@ p{margin:0}
    moldura e a amostra pararia de parecer uma janela. */
 .sampler{
   position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;
+  --marco:clamp(20px,3vw,38px);   /* espessura do marco */
+  --folha:clamp(8px,1.2vw,15px);  /* espessura da folha */
   background:
     linear-gradient(118deg,rgba(255,255,255,.72) 0 26%,rgba(255,255,255,0) 26.6% 40%,rgba(255,255,255,.34) 40.6% 49%,rgba(255,255,255,0) 49.6%),
     linear-gradient(160deg,#dfe6ea,#c2ccd3 52%,#aab6bf);
   box-shadow:0 30px 70px rgba(24,16,33,.18)
 }
 .sampler__frame{position:absolute;inset:0;pointer-events:none}
+/* Fundo do caixilho, na cor média do acabamento. Fica atrás das peças com
+   textura e só aparece na emenda de um canto, que cai em meio pixel: sem ele,
+   a emenda deixaria passar o vidro e a moldura ganharia um risco claro. */
 .sampler__frame::before{
-  content:'';position:absolute;inset:0;border:clamp(20px,3vw,38px) solid var(--sw,#171717);
-  box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,inset 0 0 60px rgba(0,0,0,.45);
-  transition:border-color .5s var(--ease-out)
+  content:'';position:absolute;inset:0;border:var(--marco) solid var(--sw,#171717);
+  box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,inset 0 0 60px rgba(0,0,0,.45)
 }
-.sampler__frame::after{
-  content:'';position:absolute;inset:clamp(20px,3vw,38px);
-  border:clamp(8px,1.2vw,15px) solid var(--sw-in,var(--sw,#171717));
-  transition:border-color .5s var(--ease-out)
+
+/* Cada peça do caixilho recorta o próprio foil, como máscara de recorte: a
+   imagem do acabamento existe inteira e só aparece dentro do perfil. Acabamento
+   amadeirado não se resolve com cor chapada, era isso que a cliente via errado.
+
+   O grão segue o comprimento da peça, como na esquadria de verdade: travessa
+   deitada puxa a textura girada (-h), montante em pé puxa a de origem (-v).
+   Os clip-path cortam as pontas a 45 graus, então os cantos fecham em meia
+   esquadria em vez de um sobre o outro. */
+.sampler__bar{
+  --t:var(--marco);
+  position:absolute;background-color:var(--sw,#171717);
+  background-size:cover;background-position:center;background-repeat:no-repeat
 }
+/* Volume do perfil: claro na aresta que pega luz, escuro na que vira sombra.
+   As duas pontas andam juntas de propósito. Com a sombra mais forte que o
+   brilho, um acabamento claro como o Platina saía do caixilho mais escuro do
+   que a amostra, e infidelidade de cor é justamente a reclamação que originou
+   esta troca. */
+.sampler__bar::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(var(--luz,180deg),rgba(255,255,255,.2),rgba(255,255,255,0) 44%,rgba(0,0,0,.2))
+}
+.sampler__bar--t,.sampler__bar--b{left:0;right:0;height:var(--t);background-image:var(--tex-h)}
+.sampler__bar--l,.sampler__bar--r{top:0;bottom:0;width:var(--t);background-image:var(--tex-v);--luz:90deg}
+.sampler__bar--t{top:0;clip-path:polygon(0 0,100% 0,calc(100% - var(--t)) 100%,var(--t) 100%)}
+.sampler__bar--b{bottom:0;clip-path:polygon(var(--t) 0,calc(100% - var(--t)) 0,100% 100%,0 100%)}
+.sampler__bar--l{left:0;clip-path:polygon(0 0,100% var(--t),100% calc(100% - var(--t)),0 100%)}
+.sampler__bar--r{right:0;clip-path:polygon(100% 0,100% 100%,0 calc(100% - var(--t)),0 var(--t))}
+
+/* A folha é o mesmo desenho, mais fina e para dentro. No bicolor ela troca de
+   acabamento sozinha: cor por fora, branco por dentro. */
+.sampler__sash{position:absolute;inset:var(--marco)}
+.sampler__sash .sampler__bar{--t:var(--folha);background-color:var(--sw-in,var(--sw,#171717))}
+.sampler__sash .sampler__bar--t,.sampler__sash .sampler__bar--b{background-image:var(--tex-in-h,var(--tex-h))}
+.sampler__sash .sampler__bar--l,.sampler__sash .sampler__bar--r{background-image:var(--tex-in-v,var(--tex-v))}
+
 .sampler__mullion{
-  position:absolute;top:clamp(20px,3vw,38px);bottom:clamp(20px,3vw,38px);left:50%;
-  width:clamp(13px,1.8vw,22px);transform:translateX(-50%);
-  background:var(--sw,#171717);z-index:2;box-shadow:0 0 0 1px rgba(255,255,255,.1);
-  transition:background-color .5s var(--ease-out)
+  position:absolute;top:var(--marco);bottom:var(--marco);left:50%;
+  width:clamp(13px,1.8vw,22px);transform:translateX(-50%);z-index:2;
+  background-color:var(--sw,#171717);background-image:var(--tex-v);
+  background-size:cover;background-position:center;
+  box-shadow:0 0 0 1px rgba(255,255,255,.1)
+}
+.sampler__mullion::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(255,255,255,.2),rgba(255,255,255,0) 44%,rgba(0,0,0,.2))
 }
 /* A legenda tinha de mudar de lugar junto com a foto: em branco sobre o vidro
    claro ela sumiria. Agora corre pela travessa inferior da moldura, que é a
    própria cor da amostra. O cálculo centra o texto na espessura da borda,
-   seja qual for o tamanho da tela; a cor vem do JS, que lê o brilho do
-   acabamento (Platina e Golden OAK são claras demais para texto branco). */
+   seja qual for o tamanho da tela; a cor vem do JS, que lê o brilho médio do
+   acabamento (Platina e Pirita são claras demais para texto branco). */
 .sampler__legend{
   position:absolute;z-index:3;
-  left:calc(clamp(20px,3vw,38px) + 6px);
-  bottom:calc((clamp(20px,3vw,38px) - 14px) / 2);
+  left:calc(var(--marco) + 6px);
+  bottom:calc((var(--marco) - 14px) / 2);
   font-size:12px;line-height:14px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--sw-txt,rgba(255,255,255,.92));
   text-shadow:var(--sw-txt-sombra,0 1px 3px rgba(0,0,0,.45));
@@ -396,7 +437,13 @@ p{margin:0}
   border:1px solid var(--line-paper);background:transparent;cursor:pointer;font-size:14px;
   transition:border-color .3s var(--ease-out),transform .3s var(--ease-out)
 }
-.swatch i{width:20px;height:20px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 0 1px rgba(24,16,33,.14) inset}
+/* A bolinha é um recorte da própria amostra, não uma cor aproximada: é aí que
+   a pessoa compara os oito acabamentos de uma vez. */
+.swatch i{
+  width:20px;height:20px;border-radius:50%;flex:0 0 auto;
+  background-size:cover;background-position:center;
+  box-shadow:0 0 0 1px rgba(24,16,33,.14) inset
+}
 .swatch:hover{transform:translateY(-2px);border-color:rgba(24,16,33,.4)}
 .swatch[aria-pressed="true"]{border-color:var(--brand);background:rgba(220,4,50,.07)}
 .bicolor{display:flex;align-items:center;gap:12px;margin-top:24px;font-size:14px;color:var(--on-paper-dim)}

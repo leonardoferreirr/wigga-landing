@@ -252,13 +252,35 @@
       return (0.299 * r + 0.587 * g + 0.114 * b) > 150;
     }
 
+    // Cada acabamento tem duas imagens: -v para as peças em pé e -h para as
+    // deitadas, porque o grão acompanha o comprimento do perfil.
+    function url(tex, eixo) { return 'url(assets/img/tex/' + tex + '-' + eixo + '.webp)'; }
+
+    // Puxa a textura antes do clique, no passar do mouse ou no foco do teclado.
+    // Sem isso o primeiro clique mostra a cor média por um quadro, até a imagem
+    // chegar. Guarda a referência para o navegador não descartar o download.
+    var puxadas = {};
+    function puxar(tex) {
+      if (!tex || puxadas[tex]) return;
+      puxadas[tex] = ['v', 'h'].map(function (eixo) {
+        var i = new Image();
+        i.src = 'assets/img/tex/' + tex + '-' + eixo + '.webp';
+        return i;
+      });
+    }
+
     function apply() {
       if (!current) return;
       var c = current.getAttribute('data-color');
+      var tex = current.getAttribute('data-tex');
       var name = current.getAttribute('data-name');
       frame.style.setProperty('--sw', c);
+      frame.style.setProperty('--tex-v', url(tex, 'v'));
+      frame.style.setProperty('--tex-h', url(tex, 'h'));
       var isBi = bicolor && bicolor.getAttribute('aria-pressed') === 'true';
       frame.style.setProperty('--sw-in', isBi ? '#F2F0EC' : c);
+      frame.style.setProperty('--tex-in-v', isBi ? 'none' : url(tex, 'v'));
+      frame.style.setProperty('--tex-in-h', isBi ? 'none' : url(tex, 'h'));
       box.style.setProperty('--sw-txt', claro(c) ? 'rgba(24,16,33,.78)' : 'rgba(255,255,255,.92)');
       box.style.setProperty('--sw-txt-sombra', claro(c) ? 'none' : '0 1px 3px rgba(0,0,0,.45)');
       if (legend) legend.textContent = isBi ? name + ' por fora, branco por dentro' : name;
@@ -270,8 +292,27 @@
         current = s;
         apply();
       });
+      var antecipa = function () { puxar(s.getAttribute('data-tex')); };
+      s.addEventListener('pointerenter', antecipa);
+      s.addEventListener('focus', antecipa);
       if (s.getAttribute('aria-pressed') === 'true') current = s;
     });
+
+    // No celular não existe passar o mouse: o primeiro toque seria sempre o
+    // lento. Quando a seção chega perto da tela, e o aparelho não está em
+    // economia de dados, baixa os oito acabamentos na folga do processador.
+    var rede = navigator.connection || {};
+    if ('IntersectionObserver' in window && !rede.saveData && !/2g/.test(rede.effectiveType || '')) {
+      var olho = new IntersectionObserver(function (ent) {
+        if (!ent[0].isIntersecting) return;
+        olho.disconnect();
+        var ocioso = window.requestIdleCallback || function (f) { setTimeout(f, 900); };
+        ocioso(function () {
+          swatches.forEach(function (s) { puxar(s.getAttribute('data-tex')); });
+        });
+      }, { rootMargin: '400px' });
+      olho.observe(box);
+    }
     if (bicolor) {
       bicolor.addEventListener('click', function () {
         var on = bicolor.getAttribute('aria-pressed') === 'true';

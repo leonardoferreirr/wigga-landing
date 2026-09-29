@@ -302,6 +302,8 @@ font-size:clamp(15px,1.5vw,19px);font-weight:500;white-space:nowrap;color:var(--
 .colors__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:clamp(32px,5vw,72px);align-items:center}
 .sampler{
 position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;
+--marco:clamp(20px,3vw,38px);
+--folha:clamp(8px,1.2vw,15px);
 background:
 linear-gradient(118deg,rgba(255,255,255,.72) 0 26%,rgba(255,255,255,0) 26.6% 40%,rgba(255,255,255,.34) 40.6% 49%,rgba(255,255,255,0) 49.6%),
 linear-gradient(160deg,#dfe6ea,#c2ccd3 52%,#aab6bf);
@@ -309,25 +311,43 @@ box-shadow:0 30px 70px rgba(24,16,33,.18)
 }
 .sampler__frame{position:absolute;inset:0;pointer-events:none}
 .sampler__frame::before{
-content:'';position:absolute;inset:0;border:clamp(20px,3vw,38px) solid var(--sw,#171717);
-box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,inset 0 0 60px rgba(0,0,0,.45);
-transition:border-color .5s var(--ease-out)
+content:'';position:absolute;inset:0;border:var(--marco) solid var(--sw,#171717);
+box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,inset 0 0 60px rgba(0,0,0,.45)
 }
-.sampler__frame::after{
-content:'';position:absolute;inset:clamp(20px,3vw,38px);
-border:clamp(8px,1.2vw,15px) solid var(--sw-in,var(--sw,#171717));
-transition:border-color .5s var(--ease-out)
+.sampler__bar{
+--t:var(--marco);
+position:absolute;background-color:var(--sw,#171717);
+background-size:cover;background-position:center;background-repeat:no-repeat
 }
+.sampler__bar::after{
+content:'';position:absolute;inset:0;
+background:linear-gradient(var(--luz,180deg),rgba(255,255,255,.2),rgba(255,255,255,0) 44%,rgba(0,0,0,.2))
+}
+.sampler__bar--t,.sampler__bar--b{left:0;right:0;height:var(--t);background-image:var(--tex-h)}
+.sampler__bar--l,.sampler__bar--r{top:0;bottom:0;width:var(--t);background-image:var(--tex-v);--luz:90deg}
+.sampler__bar--t{top:0;clip-path:polygon(0 0,100% 0,calc(100% - var(--t)) 100%,var(--t) 100%)}
+.sampler__bar--b{bottom:0;clip-path:polygon(var(--t) 0,calc(100% - var(--t)) 0,100% 100%,0 100%)}
+.sampler__bar--l{left:0;clip-path:polygon(0 0,100% var(--t),100% calc(100% - var(--t)),0 100%)}
+.sampler__bar--r{right:0;clip-path:polygon(100% 0,100% 100%,0 calc(100% - var(--t)),0 var(--t))}
+.sampler__sash{position:absolute;inset:var(--marco)}
+.sampler__sash .sampler__bar{--t:var(--folha);background-color:var(--sw-in,var(--sw,#171717))}
+.sampler__sash .sampler__bar--t,.sampler__sash .sampler__bar--b{background-image:var(--tex-in-h,var(--tex-h))}
+.sampler__sash .sampler__bar--l,.sampler__sash .sampler__bar--r{background-image:var(--tex-in-v,var(--tex-v))}
 .sampler__mullion{
-position:absolute;top:clamp(20px,3vw,38px);bottom:clamp(20px,3vw,38px);left:50%;
-width:clamp(13px,1.8vw,22px);transform:translateX(-50%);
-background:var(--sw,#171717);z-index:2;box-shadow:0 0 0 1px rgba(255,255,255,.1);
-transition:background-color .5s var(--ease-out)
+position:absolute;top:var(--marco);bottom:var(--marco);left:50%;
+width:clamp(13px,1.8vw,22px);transform:translateX(-50%);z-index:2;
+background-color:var(--sw,#171717);background-image:var(--tex-v);
+background-size:cover;background-position:center;
+box-shadow:0 0 0 1px rgba(255,255,255,.1)
+}
+.sampler__mullion::after{
+content:'';position:absolute;inset:0;
+background:linear-gradient(90deg,rgba(255,255,255,.2),rgba(255,255,255,0) 44%,rgba(0,0,0,.2))
 }
 .sampler__legend{
 position:absolute;z-index:3;
-left:calc(clamp(20px,3vw,38px) + 6px);
-bottom:calc((clamp(20px,3vw,38px) - 14px) / 2);
+left:calc(var(--marco) + 6px);
+bottom:calc((var(--marco) - 14px) / 2);
 font-size:12px;line-height:14px;letter-spacing:.14em;text-transform:uppercase;
 color:var(--sw-txt,rgba(255,255,255,.92));
 text-shadow:var(--sw-txt-sombra,0 1px 3px rgba(0,0,0,.45));
@@ -339,7 +359,11 @@ display:flex;align-items:center;gap:10px;padding:9px 16px 9px 9px;border-radius:
 border:1px solid var(--line-paper);background:transparent;cursor:pointer;font-size:14px;
 transition:border-color .3s var(--ease-out),transform .3s var(--ease-out)
 }
-.swatch i{width:20px;height:20px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 0 1px rgba(24,16,33,.14) inset}
+.swatch i{
+width:20px;height:20px;border-radius:50%;flex:0 0 auto;
+background-size:cover;background-position:center;
+box-shadow:0 0 0 1px rgba(24,16,33,.14) inset
+}
 .swatch:hover{transform:translateY(-2px);border-color:rgba(24,16,33,.4)}
 .swatch[aria-pressed="true"]{border-color:var(--brand);background:rgba(220,4,50,.07)}
 .bicolor{display:flex;align-items:center;gap:12px;margin-top:24px;font-size:14px;color:var(--on-paper-dim)}
@@ -645,10 +669,20 @@ transition:transform .35s var(--ease-out)
     </div>
 
     <figure class="perf__media rv">
-      <img src="assets/img/interior-vista-1000.webp"
-           srcset="assets/img/interior-vista-640.webp 640w, assets/img/interior-vista-1000.webp 1000w, assets/img/interior-vista-1600.webp 1600w"
-           sizes="(max-width:900px) 92vw, 1200px" width="1000" height="665" loading="lazy"
-           alt="Sala clara de apartamento alto com esquadrias pretas de correr e vista para a cidade">
+      <!-- Trocada em 29/09/2026: a cliente pediu uma foto mais chamativa aqui, e
+           mandou obras recentes fotografadas por profissional no lugar das de
+           celular. Esta abre para o jardim pela esquadria inteira, que é
+           exatamente o que a seção afirma sobre luz e relação com o exterior. -->
+      <!-- Até 860px o bloco vira 16/10. Servindo só o corte 21/9, o navegador
+           aparava as laterais e esticava o miolo, e no celular retina a foto
+           saía mole. O recorte 16x10 entra por media query, como no hero. -->
+      <picture>
+        <source media="(max-width:860px)" srcset="assets/img/estar-jardim-16x10-640.webp 640w, assets/img/estar-jardim-16x10-900.webp 900w" sizes="92vw">
+        <img src="assets/img/estar-jardim-1000.webp"
+             srcset="assets/img/estar-jardim-640.webp 640w, assets/img/estar-jardim-1000.webp 1000w, assets/img/estar-jardim-1600.webp 1600w"
+             sizes="1200px" width="1000" height="429" loading="lazy"
+             alt="Sala de estar entre paredes de pedra e forro de madeira, com porta de correr envidraçada de parede a parede aberta para o jardim">
+      </picture>
     </figure>
 
     <div class="perf__list">
@@ -728,31 +762,44 @@ transition:transform .35s var(--ease-out)
          características comprovadas do acabamento específico, sem prometer
          ausência total de manutenção.
 
-         [A PREENCHER] OS OITO HEX ABAIXO SÃO APROXIMAÇÕES. A cliente disse em
-         23/09/2026 que as cores não estão fiéis e que enviaria as imagens
-         oficiais da coleção. Quando chegarem, trocar data-color e o fundo de
-         cada .swatch i. Não estimar de novo por foto: acabamento amadeirado
-         não se resolve com cor chapada, e é isso que ela está vendo errado. -->
+         Os oito acabamentos vêm do PDF "Cores esquadrias" que a WIGGA mandou em
+         29/09/2026, cada amostra recortada em assets/img/tex. O data-color é a
+         cor média da amostra e serve de fundo enquanto a textura carrega e de
+         base para o JS decidir a cor da legenda. A textura em si é o que
+         aparece: a cliente reclamou em 23/09 que a cor chapada não batia, e
+         acabamento amadeirado realmente não se resolve com um hex. -->
 
     <div class="colors__grid">
       <!-- A foto por trás do vão saiu a pedido da cliente: com paisagem, a
            atenção ia para a casa e não para o acabamento, que é o assunto da
            seção. O vão virou vidro neutro, então só a esquadria muda de cor. -->
-      <div class="sampler rv" role="img" aria-label="Amostra da esquadria na cor selecionada">
-        <div class="sampler__frame" style="--sw:#15151A"><span class="sampler__mullion"></span></div>
+      <div class="sampler rv" role="img" aria-label="Amostra da esquadria no acabamento selecionado">
+        <div class="sampler__frame" style="--sw:#171717;--tex-v:url(assets/img/tex/jetblack-v.webp);--tex-h:url(assets/img/tex/jetblack-h.webp)">
+          <span class="sampler__bar sampler__bar--t"></span>
+          <span class="sampler__bar sampler__bar--r"></span>
+          <span class="sampler__bar sampler__bar--b"></span>
+          <span class="sampler__bar sampler__bar--l"></span>
+          <span class="sampler__sash">
+            <span class="sampler__bar sampler__bar--t"></span>
+            <span class="sampler__bar sampler__bar--r"></span>
+            <span class="sampler__bar sampler__bar--b"></span>
+            <span class="sampler__bar sampler__bar--l"></span>
+          </span>
+          <span class="sampler__mullion"></span>
+        </div>
         <span class="sampler__legend">Jetblack</span>
       </div>
 
       <div>
         <div class="swatches rv rv-d1">
-          <button class="swatch" type="button" aria-pressed="true" data-color="#15151A" data-name="Jetblack"><i style="background:#15151A"></i>Jetblack</button>
-          <button class="swatch" type="button" aria-pressed="false" data-color="#241C16" data-name="Black wood"><i style="background:linear-gradient(135deg,#2b211a,#171110)"></i>Black wood</button>
-          <button class="swatch" type="button" aria-pressed="false" data-color="#3A3B3D" data-name="Grafite"><i style="background:#3A3B3D"></i>Grafite</button>
-          <button class="swatch" type="button" aria-pressed="false" data-color="#5B4632" data-name="Bronze"><i style="background:#5B4632"></i>Bronze</button>
-          <button class="swatch" type="button" aria-pressed="false" data-color="#9A6B38" data-name="Golden OAK"><i style="background:linear-gradient(135deg,#b07c42,#7e5327)"></i>Golden OAK</button>
-          <button class="swatch" type="button" aria-pressed="false" data-color="#7A5A3C" data-name="Turner OAK"><i style="background:linear-gradient(135deg,#8d6846,#5f4229)"></i>Turner OAK</button>
-          <button class="swatch" type="button" aria-pressed="false" data-color="#6E6A5F" data-name="Pirita"><i style="background:#6E6A5F"></i>Pirita</button>
-          <button class="swatch" type="button" aria-pressed="false" data-color="#B9B7B2" data-name="Platina"><i style="background:#B9B7B2"></i>Platina</button>
+          <button class="swatch" type="button" aria-pressed="true"  data-tex="jetblack"   data-color="#171717" data-name="Jetblack"><i style="background-color:#171717;background-image:url(assets/img/tex/jetblack-dot.webp)"></i>Jetblack</button>
+          <button class="swatch" type="button" aria-pressed="false" data-tex="blackwood"  data-color="#1B1B1B" data-name="Blackwood"><i style="background-color:#1B1B1B;background-image:url(assets/img/tex/blackwood-dot.webp)"></i>Blackwood</button>
+          <button class="swatch" type="button" aria-pressed="false" data-tex="grafite"    data-color="#3B3B3B" data-name="Grafite"><i style="background-color:#3B3B3B;background-image:url(assets/img/tex/grafite-dot.webp)"></i>Grafite</button>
+          <button class="swatch" type="button" aria-pressed="false" data-tex="bronze"     data-color="#544B39" data-name="Bronze"><i style="background-color:#544B39;background-image:url(assets/img/tex/bronze-dot.webp)"></i>Bronze</button>
+          <button class="swatch" type="button" aria-pressed="false" data-tex="golden-oak" data-color="#68481F" data-name="Golden OAK"><i style="background-color:#68481F;background-image:url(assets/img/tex/golden-oak-dot.webp)"></i>Golden OAK</button>
+          <button class="swatch" type="button" aria-pressed="false" data-tex="turner-oak" data-color="#957D5A" data-name="Turner OAK"><i style="background-color:#957D5A;background-image:url(assets/img/tex/turner-oak-dot.webp)"></i>Turner OAK</button>
+          <button class="swatch" type="button" aria-pressed="false" data-tex="pirita"     data-color="#9B998F" data-name="Pirita"><i style="background-color:#9B998F;background-image:url(assets/img/tex/pirita-dot.webp)"></i>Pirita</button>
+          <button class="swatch" type="button" aria-pressed="false" data-tex="platina"    data-color="#AFAFAF" data-name="Platina"><i style="background-color:#AFAFAF;background-image:url(assets/img/tex/platina-dot.webp)"></i>Platina</button>
         </div>
 
         <div class="bicolor rv rv-d2">
@@ -935,7 +982,9 @@ transition:transform .35s var(--ease-out)
         <img src="assets/img/residencia-madeira-1000.webp" srcset="assets/img/residencia-madeira-640.webp 640w, assets/img/residencia-madeira-1000.webp 1000w" sizes="(max-width:640px) 92vw, 46vw" width="1000" height="562" loading="lazy" alt="Residência com painéis de madeira e esquadrias escuras na fachada">
       </figure>
       <figure class="work rv rv-d1">
-        <img src="assets/img/obra-01-1000.webp" srcset="assets/img/obra-01-640.webp 640w, assets/img/obra-01-1000.webp 1000w" sizes="(max-width:640px) 92vw, 46vw" width="1000" height="607" loading="lazy" alt="Residência contemporânea com esquadrias de piso a teto e jardim frontal">
+        <!-- Trocada em 29/09/2026 junto com a da seção de desempenho, pelo mesmo
+             motivo: obra recente, foto profissional. -->
+        <img src="assets/img/residencia-deck-1000.webp" srcset="assets/img/residencia-deck-640.webp 640w, assets/img/residencia-deck-1000.webp 1000w" sizes="(max-width:640px) 92vw, 46vw" width="1000" height="750" loading="lazy" alt="Deck de madeira com piscina, portas de correr escuras de piso a teto e araucárias ao fundo">
       </figure>
       <figure class="work rv rv-d1">
         <img src="assets/img/obra-02-1000.webp" srcset="assets/img/obra-02-640.webp 640w, assets/img/obra-02-1000.webp 1000w" sizes="(max-width:640px) 92vw, 46vw" width="1000" height="750" loading="lazy" alt="Sobrado moderno com grandes vãos envidraçados e varanda">
