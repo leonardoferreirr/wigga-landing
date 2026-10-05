@@ -587,11 +587,14 @@ transition:transform .35s var(--ease-out)
      A conversão precisa ter tempo de sair antes da página mudar, então o
      redirecionamento espera o retorno do GTM, com piso de 0,9s para a pessoa
      ler o que está acontecendo e teto de 2,6s para não travar se o container
-     não responder (ou nem existir).
+     não responder.
 
-     [A PREENCHER] snippet do GTM da WIGGA. Ele só carrega aqui quando existe
-     pedido de verdade na sessão, para visita direta a esta URL não registrar
-     conversão. */
+     O container carrega aqui embaixo, e não no <head> como na home: tudo
+     abaixo da linha 566 só roda quando existe pedido de verdade na sessão.
+     Quem digitar /obrigado.html na barra de endereço não carrega o GTM e não
+     registra conversão nenhuma. É a diferença entre medir pedido e medir
+     visita. Por isso esta página também não leva o <noscript> do GTM: aquele
+     iframe dispararia em qualquer acesso, inclusive no acesso direto. */
   var foi = false, nascido = Date.now();
   function irParaOZap() {
     if (foi) return;
@@ -610,7 +613,19 @@ transition:transform .35s var(--ease-out)
     eventCallback: irParaOZap,
     eventTimeout: 2000
   });
-  // (function(w,d,s,l,i){ ... snippet do GTM ... })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  /* O push acima acontece antes do container existir, e isso é de propósito:
+     o dataLayer é uma fila, então o GTM processa o evento assim que sobe e só
+     então chama irParaOZap. */
+  (function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),
+        dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WXN6D9RT');
 
   setTimeout(irParaOZap, 2600);
 })();
